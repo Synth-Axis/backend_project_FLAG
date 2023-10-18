@@ -1,0 +1,55 @@
+
+GAMES
+	game_id PK INT
+	game_name
+	release_year
+	game_photo
+	genre_id FK SMALLINT
+
+
+GENRES
+	genre_id PK SMALL INT
+	genre_name VAR 60
+
+
+RATINGS
+	rating_id PK TINYINT
+	rating_title
+	rating_score
+
+RATED_GAMES
+	game_id FK
+	rating_id FK
+	
+
+PLATFORMS
+	platform_id PK TINYINT
+	platform_name
+
+
+GAMES_PLATFORMS
+	platform_id FK
+	game_id FK
+
+	
+SCREENSHOTS
+	screenshot_id PK BIGINT
+	game_id FK
+	screenshot_image
+
+
+USERS
+	user_id PK BIGINT
+	username
+	email
+	password
+	country
+	user_type
+
+
+OWNED_GAMES
+	user_id FK
+	game_id FK
+
+	
+	
