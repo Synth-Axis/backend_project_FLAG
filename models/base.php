@@ -1,7 +1,5 @@
 <?php
 
-define("ENV", parse_ini_file("../.env"));
-
 class Base{
 
     public $db;
