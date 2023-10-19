@@ -1,0 +1,133 @@
+           
+            Dúvidas fora de aula:
+            -> justivo@pm.me <-
+                 ou Discord
+
+
+Preparações para projecto final:
+
+1) tema livre, decidir o que vão fazer
+    (projecto novo ou reutilizar o primeiro projecto)
+2) se for um projecto novo, possivelmente preparar um novo frontend antecipadamente
+    (não faz mal utilizar frameworks de CSS ou templates criados por outras pessoas)
+3) eventualmente vão ter que passar todo o conteúdo para uma base de dados real
+    (pensar nisso, o PHP consegue facilmente parsar ficheiros de JSON se já os tiverem)
+4) explorar gestores de conteúdo (CMS) / dashboards caso queiram fazer uma área administrativa
+    (tirar ideias para criar algo semelhante mas mais básico)
+
+
+Requisitos:
+
+Uso extensivo de PHP + MySQL (sem uso de frameworks backend)
+Na criação de APIs (sejam para AJAX ou sejam para uso público), usar os fundamentos de REST correctamente
+NÃO COPIAR CÓDIGO DE OUTRAS PESSOAS
+utilizar paradigma MVC (possível usar a microframework criada durante as aulas de PHP/REST API)
+    Models (interações com a base de dados)
+    Views (template/output, em caso de API estas não existem)
+    Controller (decisões / acções / ponte entre o model e view)
+usar Git
+    efectuar commit quando finalizada cada uma das funcionalidades programadas, escrever mensagem relevante
+    no caso de projecto cujo frontend seja separado (ex: React), potencialmente manter dois repositórios diferentes
+    criar um .gitignore que não permita commits de binários (ex: imagens) e ficheiros confidenciais (ex: .env)
+criar um frontoffice (site público)
+criar opcionalmente um backoffice (area administrativa)
+    Implementar funcionalidades CRUD sobre o contéudo do site
+    Autenticação Segura (nenhuma funcionalidade de administração pode funcionar sem login efectuado, testar bem!)
+    Fará sentido usar um "rich text editor" para conteúdo com paragrafos, links, e afins (usar: CKEditor ou TinyMCE)
+usar algum AJAX (onde fizer sentido)
+    ex: área administrativa, botões para apagar registos sem reload de página
+    ex: front office, alteração de carrinho numa loja envia essa de informação para o backend sem reload da página
+    ex: numa rede social, ter o botão de like que quando clica fica a vermelho
+usar um ficheiro de configuração .env (guardar informação de conexão BD, informação para envio de email, etc)
+possivelmente aplicar um CAPTCHA (vosso) num formulário onde faça sentido existir proteção contra SPAM
+    ex: criação de conta ou envio de mensagens de contacto
+possivelmente ter envio de email por SMTP para funcionalidades onde faça sentido
+    ex: criação de conta ou resumo de encomenda
+salvaguardar todas as interações externas contra falhas de segurança XSS, CSRF e SQL Injection
+    Prevenir XSS (com sanitização de strings: strip_tags e htmlspecialchars)
+    Prevenir CSRF (com um token escondido no formulário e que depois é comparado com o guardado em SESSION)
+    Prevenir SQL Injection (com prepared statements)
+enviar os status code de HTTP correctos para diferentes situações de erro ou alteração de dados
+    ex: 400 Bad Request, 401 Unauthorized, 404 Not Found, etc
+
+
+            primeiros passos:
+                definir o dicionário de dados
+                quais tabelas
+                que colunas
+                que relações (PK <=> FK)
+
+            criar estrutura do projecto (não ter mais nada no htdocs do que o projecto)
+            estrutura sugerida para projecto 100% PHP (sem React):
+                controllers
+                models
+                views
+                js
+                css
+                images
+                favicon.ico
+                index.php
+                .htaccess
+                .gitignore
+                .env
+
+            Passos seguintes:
+                definir controllers
+                criar models (um ficheiro por cada tabela da BD)
+                criar views
+                finalizar frontoffice
+                começar backoffice
+
+            Sugestões para reutilizar a mini-framework MVC:
+            1) apagar controllers, models (excepto Base) e views antigas (ou seja, não do vosso projecto actual)
+            2) modificar o .env para apontar à BD correcta
+            3) depois fazer o "git init"
+            4) fazer "git add" dos ficheiros a monitorizar
+            5) no Github (ou semelhante), criar um repositório vazio (sem README, sem licença, etc)
+            6) usar os comandos providenciados pelo Github para associar o repositório local ao remoto
+
+            Passos para utilização do Git no projecto        
+            1) criar conta num serviço de alojamento de Git (github, gitlab, bitbucket, etc)
+            2) entrar no directório do htdocs e fazer "git init"
+            3) importar esse repositório para o serviço de alojamento (opção que aparece quando se cria um vazio no serviço)
+            4) depois por cada nova funcionalidade criada/correção implementada
+                git commit -am "explicacao do que foi feito"        
+                git push origin main
+            5) criar um .gitignore com listagem de ficheiros e directórios a ignorar (ex: imagens, .env)
+
+            providenciar na data de entrega:
+                enviar email para justivo@pm.me juntamente com
+                acesso ao repositório, providenciar link (se for privado, adicionar utilizador github/gitlab: Saoshyant)
+                extração da base de dados (através de phpmyadmin)
+                enviar zip por email ou partilhar via cloud os ficheiros que não estejam no Git (.env, imagens, etc)
+                dados de acesso duma conta de administrador (para testar backoffice)
+                providenciar uma explicação de proposito e funcionalidades (o que a Flag chama de Memória Descritiva)
+
+            exemplos invocação MVC com permalinks:
+            localhost/donations
+            localhost/product/1231
+
+            exemplo na view de home.php:
+            href="/donations"
+            no index.php fazer
+                require("controllers/donations.php");
+
+            (estrutura sugerida no htdocs do XAMPP, deve estar vazia em cada novo projecto)
+            xampp/
+                htdocs/ <--- React (ficheiros gerados pelo build, não passar o resto do React para dentro do XAMPP)
+                htdocs/api/ <--- PHP (se usar React)
+                htdocs/ <--- PHP (se não usar React)
+                htdocs/index.php
+                htdocs/.git/
+                htdocs/.htaccess     (para React ou PHP poderem usar caminhos virtuais)
+                htdocs/api/.htaccess (para o PHP usar caminhos virtuais aquando o uso de React)
+                htdocs/images
+                htdocs/controllers
+                htdocs/models
+                htdocs/views
+                htdocs/js
+                htdocs/css
+            se o PHP estiver a ser usado apenas para fazer APIs, deixar o build da aplicação de frontend
+            no htdocs (ex: React) e depois criar um directório "api" para o PHP mais o .htaccess necessário,
+            será este directório (api) a ser monitorizado pelo Git
+            caso seja um projecto 100% PHP, utilizar apenas a raíz do htdocs onde tudo será monitorizado pelo Git
