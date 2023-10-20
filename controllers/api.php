@@ -2,7 +2,7 @@
 
 require("../models/api.php");
 
-$model = new Api();
+// $model = new Api();
 
 // $model->getGames($games);
 
@@ -14,4 +14,4 @@ $model = new Api();
 
 // $model->getPlatforms($platforms);
 
-$model->getGamesByPlatforms($platforms);
+// $model->getGamesByPlatforms($platforms);

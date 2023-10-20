@@ -1,13 +1,7 @@
 <?php
-    
-    require("models/games.php");
 
-    $model = new Games();
+// $modelPlatforms = new Platforms();
 
-    $games = $model->getALLGames();
+// $platformsByGame = $modelPlatforms->findPlatformsByGame($gameId);
 
-    if( empty($games)){
-        http_response_code(404);
-        die("Not found");
-    }
-?>
+// require("views/games.view.php");

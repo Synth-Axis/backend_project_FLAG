@@ -10,7 +10,7 @@ $url_parts = explode("/", $_SERVER["REQUEST_URI"]);
 $controller = $url_parts[1];
 
 if (empty($controller)){
-    $controller = "index";
+    $controller = "home";
 }
 
 if (!empty($url_parts[2])){

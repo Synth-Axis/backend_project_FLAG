@@ -4,7 +4,7 @@ require_once("base.php");
 
 class Games extends Base{
 
-	public function getALLGames() {
+	public function getAllGames() {
 		
 		$query = $this->db->prepare("
 			SELECT 

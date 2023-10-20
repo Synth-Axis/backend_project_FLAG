@@ -1,9 +1,4 @@
-<?php 
-
-require ("./controllers/genres.php"); 
-require ("./controllers/platforms.php");
-
-require('views/partials/head.php') ?>
+<?php require('views/partials/head.php') ?>
 
 <body class="text-light bg-dark">
     <div class="container text-center">
