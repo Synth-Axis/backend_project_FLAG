@@ -6,8 +6,8 @@
     </div>    
     <div class="col-2">
         <div class="col">
-            <span class="mx-1">Login</span>
-            <span class="mx-1">icon2</span>
-            <span class="mx-1">icon3</span>
+            <a href="/login" class="mx-1">Login</a>
+            <a href="/register" class="mx-1">Register</a>
+            <a href="/contact" class="mx-1">Contact</a>
         </div>
     </div>

@@ -32,6 +32,4 @@ if( empty($platforms)){
     die("Not found");
 }
 
-// $platformByGame = $modelPlatforms->findPlatformsByGame($gameId);
-
-require("views/home.php");
+require("views/latest.php");
