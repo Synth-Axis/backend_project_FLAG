@@ -15,7 +15,7 @@
         <a href="/latest">
             <li class="list-group-item border-0 mt-2">Latest (2018)</li>
         </a>
-        <a href="/previousyears">
+        <a href="/oldergames">
             <li class="list-group-item border-0 mt-2">Previous Years</li>
         </a>
     </ul>

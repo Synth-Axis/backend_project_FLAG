@@ -6,9 +6,9 @@ require("models/platforms.php");
 
 $modelGames = new Games();
 
-$latestGames = $modelGames->getLatestGames();
+$previousGames = $modelGames->getPreviousGames();
 
-if( empty($latestGames)){
+if( empty($previousGames)){
     http_response_code(404);
     die("Not found");
 }
@@ -31,4 +31,4 @@ if( empty($platforms)){
     die("Not found");
 }
 
-require("views/latest.php");
+require("views/oldergames.php");

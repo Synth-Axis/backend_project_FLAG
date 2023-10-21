@@ -13,7 +13,7 @@
             
             <div class="col-9">
                 <div class="row d-flex justify-content-center">
-                <?php foreach ($games as $game) : ?>
+                <?php foreach ($previousGames as $game) : ?>
                     <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
                         <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
                         <div class="card-body">
