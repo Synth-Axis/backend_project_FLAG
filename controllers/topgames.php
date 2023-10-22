@@ -3,14 +3,24 @@
 require("models/games.php");
 require("models/genres.php");
 require("models/platforms.php");
+require("models/ratings.php");
 
 $modelGames = new Games();
 
 $games = $modelGames->getAllGames();
 
-if( empty($games)){
-    http_response_code(404);
-    die("Not found");
+$modelRatings = new Ratings();
+
+function topRatedGames ($game) {
+    $topRated = [];
+    foreach ($games as $game){
+        $topRatings = $modelGames->getAverageRatings($game);
+        $topRated[] = $topRatings;
+    }
+    if (empty($topRated)){
+        echo ("No games found");
+    }
+    return $topRated;
 }
 
 $modelGenres = new Genres();
@@ -26,15 +36,9 @@ $modelPlatforms = new Platforms();
 
 $platforms = $modelPlatforms->getPlatforms();
 
-
 if( empty($platforms)){
     http_response_code(404);
     die("Not found");
 }
-function platformsByGame () {
-    foreach ($games as $game) {
-        return $platformByGame = $modelPlatforms->findPlatformsByGame(802);
-    }
-}
 
-require("views/home.php");
+require("views/topgames.php");

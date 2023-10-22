@@ -24,7 +24,7 @@
 <div class="row mx-4 mt-4 text-start">
     <h3 class="mt-3 fw-bold">Top</h3>
     <ul class="list-group-dark list-group-flush">
-        <a href="/top">
+        <a href="/topgames">
             <li class="list-group-item border-0 mt-2">Best of 2018</li>
         </a>
         <a href="previousbest">
