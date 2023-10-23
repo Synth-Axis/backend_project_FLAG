@@ -1,4 +1,14 @@
-<?php require('views/partials/head.php') ?>
+<?php require('views/partials/head.php'); 
+
+echo "<pre>";
+var_dump($games);
+echo "</pre>";
+
+// echo "<pre>";
+// var_dump($platform);
+// echo "</pre>";
+
+?>
 
 <body class="text-light bg-dark">
     <div class="container text-center">
@@ -19,9 +29,9 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
                             <p class="card-text">
-                                <?php foreach ($platformByGame as $platform) : ?>
-                                         <?= $platform["platformName"] ?> 
-                                <?php endforeach ?>
+                            <?php foreach($platformsByGame as $platform) : ?>
+                               <?= $platform["platformName"] ?>
+                            <?php endforeach ?>
                             </p>
                             <input type="button" class="btn btn-primary" value="Add to your Games">
                             <a href="/gamedetails/<?= $game['game_id'] ?>" class="btn btn-primary">More</a>

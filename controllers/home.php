@@ -31,10 +31,11 @@ if( empty($platforms)){
     http_response_code(404);
     die("Not found");
 }
-function platformsByGame () {
-    foreach ($games as $game) {
-        return $platformByGame = $modelPlatforms->findPlatformsByGame(802);
+
+foreach ( $games as $platforms_games) {
+    
+    foreach ($platforms_games as $platform){
+        $platformsByGame = $modelPlatforms->findPlatformsByGame($platforms_games["game_id"]);
     }
 }
-
 require("views/home.php");

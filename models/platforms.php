@@ -28,8 +28,8 @@ class Platforms extends Base{
 				games_platforms AS gp ON(gp.game_id = g.game_id)
 			INNER JOIN
 				platforms AS p ON(p.platform_id = gp.platform_id)
-			WHERE
-				g.game_id = ?
+			WHERE 
+				gp.game_id = ?
 		");
 
 		$query->execute( [$gameId] );
