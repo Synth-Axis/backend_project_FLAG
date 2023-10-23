@@ -1,11 +1,11 @@
 <?php require('views/partials/head.php'); 
 
-echo "<pre>";
-var_dump($games);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($games);
+// echo "</pre>";
 
 // echo "<pre>";
-// var_dump($platform);
+// var_dump($platformsByGame);
 // echo "</pre>";
 
 ?>
@@ -29,7 +29,7 @@ echo "</pre>";
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
                             <p class="card-text">
-                            <?php foreach($platformsByGame as $platform) : ?>
+                            <?php foreach($game["platforms"] as $platform) : ?>
                                <?= $platform["platformName"] ?>
                             <?php endforeach ?>
                             </p>

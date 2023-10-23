@@ -26,16 +26,13 @@ $modelPlatforms = new Platforms();
 
 $platforms = $modelPlatforms->getPlatforms();
 
-
 if( empty($platforms)){
     http_response_code(404);
     die("Not found");
 }
 
-foreach ( $games as $platforms_games) {
-    
-    foreach ($platforms_games as $platform){
-        $platformsByGame = $modelPlatforms->findPlatformsByGame($platforms_games["game_id"]);
-    }
+foreach ( $games as $key => $game ) {
+    $games[$key]["platforms"] = $modelPlatforms->findPlatformsByGame($game["game_id"]);
 }
+
 require("views/home.php");
