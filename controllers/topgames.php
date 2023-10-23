@@ -11,18 +11,6 @@ $games = $modelGames->getAllGames();
 
 $modelRatings = new Ratings();
 
-function topRatedGames ($game) {
-    $topRated = [];
-    foreach ($games as $game){
-        $topRatings = $modelGames->getAverageRatings($game);
-        $topRated[] = $topRatings;
-    }
-    if (empty($topRated)){
-        echo ("No games found");
-    }
-    return $topRated;
-}
-
 $modelGenres = new Genres();
 
 $genres = $modelGenres->getAll();
@@ -39,6 +27,15 @@ $platforms = $modelPlatforms->getPlatforms();
 if( empty($platforms)){
     http_response_code(404);
     die("Not found");
+}
+
+
+foreach ( $games as $key => $game ) {
+    $games[$key]["score"] = $modelRatings->findRatingsByGame($game["game_id"]);
+
+    // echo "<pre>";
+    // var_dump($games);
+    // echo "</pre>";
 }
 
 require("views/topgames.php");
