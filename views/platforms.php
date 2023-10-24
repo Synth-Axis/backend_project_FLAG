@@ -19,7 +19,7 @@
                             <h5 class="card-title"><?= $platform['platform_name'] ?></h5>           
                             <p class="card-text">
                             </p>
-                            <a href="/gamedetails/<?= $platform['platform_id'] ?>" class="btn btn-primary">
+                            <a href="/platformgames/<?= $platform['platform_id'] ?>" class="btn btn-primary">
                                 <input type="button" class="btn btn-primary" value="Check Games">
                             </a>
                         </div>

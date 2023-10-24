@@ -66,4 +66,23 @@ class Games extends Base{
 
 	}
 
+	public function findGamesByPlatform($platformId){
+		$query = $this->db->prepare("
+		SELECT
+			g.game_id, g.game_name, g.released_on, g.game_photo, gp.game_id, gp.platform_id
+		FROM
+			games_platforms AS gp   
+		INNER JOIN
+			platforms as p ON(p.platform_id = gp.platform_id)
+		INNER JOIN
+			games as g ON(g.game_id = gp.game_id)
+		WHERE
+			p.platform_id = ?
+		");
+
+		$query->execute( [$platformId] );
+		
+		return $query->fetchAll();
+	}
+
 }
