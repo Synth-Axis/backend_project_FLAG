@@ -31,11 +31,12 @@ if( empty($platforms)){
 
 
 foreach ( $games as $key => $game ) {
-    $games[$key]["score"] = $modelRatings->findRatingsByGame($game["game_id"]);
-
-    // echo "<pre>";
-    // var_dump($games);
-    // echo "</pre>";
+    $games[$key]["averageScore"] = $modelRatings->getAverageRatings($game["game_id"]);
 }
+
+echo "<pre>";
+var_dump($games);
+echo "</pre>";
+
 
 require("views/topgames.php");

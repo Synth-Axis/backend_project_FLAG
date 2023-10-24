@@ -19,8 +19,8 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
                             <p class="card-text">
-                            <?php foreach($game["score"] as $rating) : ?>
-                               <?= $rating["score"] ?>
+                            <?php foreach($game["averageScore"] as $rating) : ?>
+                               <?= $rating["averageScore"] ?>
                             <?php endforeach ?>
                             </p>
                             <input type="button" class="btn btn-primary" value="Add to your Games">

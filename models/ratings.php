@@ -7,21 +7,24 @@ class Ratings extends Base{
     public function getAverageRatings($gameId){
 
         $query = $this->db->prepare("
-        SELECT 
-            g.game_id, AVG(r.rating_score) as average_rating
-        FROM
-            games g
-        INNER JOIN
-            rated_games AS rg ON(rg.game_id = g.game_id)
-        INNER JOIN
-        	ratings AS r ON(r.rating_id = rg.rating_id)
+
+		SELECT 
+			AVG(r.rating_score) AS averageScore
+		FROM 
+			games AS g
+		INNER JOIN
+			rated_games AS rg ON(rg.game_id = g.game_id)
+		INNER JOIN
+			ratings AS r ON(r.rating_id = rg.rating_id)
         WHERE
-        	g.game_id = ?
+        	rg.game_id = ?
+		HAVING  
+			AVG(r.rating_score) >= 3.5
         ");
 
-        $query->execute($gameId);
+        $query->execute([$gameId]);
 		
-		return $query->fetch();
+		return $query->fetchAll();
     }
 
     public function findRatingsByGame($gameId){
@@ -43,3 +46,32 @@ class Ratings extends Base{
 		return $query->fetchAll();
 	}
 }
+
+
+// SELECT	
+// *
+// FROM
+// (
+// SELECT 
+// 			g.game_id, g.game_name, rg.rating_id, r.rating_score, AVG(r.rating_score) AS averageScore
+// 		FROM 
+// 			games AS g
+// 		INNER JOIN
+// 			rated_games AS rg ON(rg.game_id = g.game_id)
+// 		INNER JOIN
+// 			ratings AS r ON(r.rating_id = rg.rating_id)    
+// ) r
+// WHERE averageScore < 3.5
+
+
+
+		// SELECT 
+		// 	g.game_id, g.game_name, rg.rating_id, AVG(r.rating_score) AS averageScore
+		// FROM 
+		// 	games AS g
+		// INNER JOIN
+		// 	rated_games AS rg ON(rg.game_id = g.game_id)
+		// INNER JOIN
+		// 	ratings AS r ON(r.rating_id = rg.rating_id)
+		// WHERE 
+		// 	rg.game_id = ?
