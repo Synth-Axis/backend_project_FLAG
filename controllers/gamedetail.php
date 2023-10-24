@@ -1,15 +1,12 @@
 <?php
 
-require("models/games.php");
+if ( empty($id) || !is_numeric($id)){
+    http_response_code(400);
+    die("Request inválido");
+}
+
 require("models/genres.php");
 require("models/platforms.php");
-require("models/ratings.php");
-
-$modelGames = new Games();
-
-$games = $modelGames->getAllGames();
-
-$modelRatings = new Ratings();
 
 $modelGenres = new Genres();
 
@@ -29,9 +26,15 @@ if( empty($platforms)){
     die("Not found");
 }
 
+require("models/games.php");
 
-foreach ( $games as $key => $game ) {
-    $games[$key]["averageScore"] = $modelRatings->getAverageRatings($game["game_id"]);
+$model = new Games();
+
+$game = $model->getGameDetail($id);
+
+if( empty($game)){
+    http_response_code(404);
+    die("Não encontrado");
 }
 
-require("views/topgames.php");
+require ("views/gamedetail.php");

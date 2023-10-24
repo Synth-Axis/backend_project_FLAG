@@ -42,9 +42,6 @@
         <a href="/genres">
             <li class="list-group-item border-0 mt-2">Genres</li>
         </a>
-        <a href="/reviews">
-            <li class="list-group-item border-0 mt-2">Reviews</li>
-        </a>
     </ul>
 </div>
 

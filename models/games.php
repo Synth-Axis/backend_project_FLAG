@@ -47,4 +47,23 @@ class Games extends Base{
 		
 		return $query->fetchAll();
 	}
+
+	public function getGameDetail($id){
+
+		$query = $this->db->prepare("
+			SELECT
+				*
+			FROM 
+				games
+			WHERE 
+				game_id= ?
+
+		");
+
+		$query->execute([ $id ]);
+
+		return $query->fetch();
+
+	}
+
 }

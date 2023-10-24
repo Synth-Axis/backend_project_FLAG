@@ -1,14 +1,4 @@
-<?php require('views/partials/head.php'); 
-
-// echo "<pre>";
-// var_dump($games);
-// echo "</pre>";
-
-// echo "<pre>";
-// var_dump($platformsByGame);
-// echo "</pre>";
-
-?>
+<?php require('views/partials/head.php') ?>
 
 <body class="text-light bg-dark">
     <div class="container text-center">
@@ -34,7 +24,7 @@
                             <?php endforeach ?>
                             </p>
                             <input type="button" class="btn btn-primary" value="Add to your Games">
-                            <a href="/gamedetails/<?= $game['game_id'] ?>" class="btn btn-primary">More</a>
+                            <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary">More</a>
                         </div>
                     </div>
                 <?php endforeach ?>

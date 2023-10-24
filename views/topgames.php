@@ -24,7 +24,7 @@
                             <?php endforeach ?>
                             </p>
                             <input type="button" class="btn btn-primary" value="Add to your Games">
-                            <a href="/gamedetails/<?= $game['game_id'] ?>" class="btn btn-primary">More</a>
+                            <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary">More</a>
                         </div>
                     </div>
                 <?php endforeach ?>
