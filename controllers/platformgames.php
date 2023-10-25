@@ -28,9 +28,15 @@ if( empty($platforms)){
 
 require("models/games.php");
 
-$model = new Games();
+$modelGames = new Games();
 
 foreach ( $platforms as $key => $platform ) {
-    $platforms[$key]["games"] = $modelPlatforms->findGamesByPlatform($platform["platform_id"]);
+    $platforms[$key]["games"] = $modelGames->findGamesByPlatform($platform["platform_id"]);
 }
+
+// echo "<pre>";
+// var_dump($platforms);
+// echo "</pre>";
+
+require ("views/platformgames.php");
 
