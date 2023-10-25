@@ -18,11 +18,11 @@
                         <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
-                            <p class="card-text">
+                            <!-- <p class="card-text">
                             <?php foreach($game["averageScore"] as $rating) : ?>
                                <?= $rating["averageScore"] ?>
                             <?php endforeach ?>
-                            </p>
+                            </p> -->
                             <input type="button" class="btn btn-primary" value="Add to your Games">
                             <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary">More</a>
                         </div>
@@ -30,7 +30,7 @@
                 <?php endforeach ?>
                 </div>
             </div>
-            
+                                
         </div>
     </div>
 

@@ -7,7 +7,7 @@ require("models/ratings.php");
 
 $modelGames = new Games();
 
-$games = $modelGames->getTopRated();
+$games = $modelGames->getPreviousTopRated();
 
 $modelRatings = new Ratings();
 
@@ -29,4 +29,4 @@ if( empty($platforms)){
     die("Not found");
 }
 
-require("views/topgames.php");
+require("views/previoustopgames.php");

@@ -27,7 +27,7 @@
         <a href="/topgames">
             <li class="list-group-item border-0 mt-2">Best of 2018</li>
         </a>
-        <a href="previousbest">
+        <a href="/previoustopgames">
             <li class="list-group-item border-0 mt-2">Best of Previous Years</li>
         </a>
     </ul>
@@ -49,7 +49,7 @@
     <h3 class="mt-3 fw-bold">Platforms</h3>
         <ul class="list-group-dark list-group-flush">
             <?php foreach ($platforms as $platform) : ?>
-                <a href="/platform/<?= $platform["platform_id"] ?>">
+                <a href="/platformgames/<?= $platform["platform_id"] ?>">
                     <li class="list-group-item border-0 mt-2"><?= $platform['platform_name'] ?></li>
                 </a>
             <?php endforeach; ?>

@@ -4,29 +4,6 @@ require_once("base.php");
 
 class Ratings extends Base{
 
-    public function getAverageRatings($gameId){
-
-        $query = $this->db->prepare("
-
-		SELECT 
-			AVG(r.rating_score) AS averageScore
-		FROM 
-			games AS g
-		INNER JOIN
-			rated_games AS rg ON(rg.game_id = g.game_id)
-		INNER JOIN
-			ratings AS r ON(r.rating_id = rg.rating_id)
-        WHERE
-        	rg.game_id = ?
-		HAVING  
-			AVG(r.rating_score) >= 3.5
-        ");
-
-        $query->execute([$gameId]);
-		
-		return $query->fetchAll();
-    }
-
     public function findRatingsByGame($gameId){
 		$query = $this->db->prepare("
 			SELECT 

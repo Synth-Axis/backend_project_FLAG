@@ -2,11 +2,13 @@
 
 require("../models/api.php");
 
-// $model = new Api();
+$model = new Api();
 
 // $model->getGames($games);
 
 // $model->getGenres($genres);
+
+$model->getGamesByGenre($genres);
 
 // $model->getRatings($games);
 

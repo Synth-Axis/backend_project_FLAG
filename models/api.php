@@ -139,6 +139,27 @@ class Api extends Base{
             }
         }
     }
+
+    public function getGamesByGenre($genre){
+
+        foreach( $genre["results"] as $genre) {
+
+            $query = $this->db->prepare("
+                INSERT INTO genres_games
+                        (game_id, genre_id)
+                VALUES
+                    (?, ?)
+            ");
+
+            foreach( $genre["games"] as $genre_game){
+    
+                $query->execute ([
+                    $genre_game["id"],
+                    $genre["id"]
+                ]);
+            }
+        }
+    }
 }
 
 ?>

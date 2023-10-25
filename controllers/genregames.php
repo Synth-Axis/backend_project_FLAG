@@ -1,15 +1,12 @@
 <?php
 
-require("models/games.php");
+if ( empty($id) || !is_numeric($id)){
+    http_response_code(400);
+    die("Request inválido");
+}
+
 require("models/genres.php");
 require("models/platforms.php");
-require("models/ratings.php");
-
-$modelGames = new Games();
-
-$games = $modelGames->getTopRated();
-
-$modelRatings = new Ratings();
 
 $modelGenres = new Genres();
 
@@ -29,4 +26,12 @@ if( empty($platforms)){
     die("Not found");
 }
 
-require("views/topgames.php");
+require("models/games.php");
+
+$modelGames = new Games();
+
+foreach ( $genres as $key => $genre ) {
+    $genres[$key]["games"] = $modelGames->findGamesByGenre($genre["genre_id"]);
+}
+
+require ("views/genregames.php");
