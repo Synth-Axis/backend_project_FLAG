@@ -3,11 +3,20 @@
 <!-- If logged shows username and photo -->
 <div class="row mx-4 mt-4 text-start">
     <a href="/"><h3 class="mt-3 fw-bold">Home</h3></a>
-    <h3 class="mt-3 fw-bold">"Username"</h3>
+
+<?php
+    if( isset($_SESSION["user_id"]) ){         
+?>
+
+    <h3 class="mt-3 fw-bold"><?= $currentUser["username"] ?></h3>
     <ul class="list-group-dark list-group-flush">
         <li class="list-group-item border-0 mt-2">Wishlist</li>
         <li class="list-group-item border-0">My Library</li>
     </ul>
+<?php  
+    }  
+?>
+
 </div>
 <div class="row mx-4 mt-4 text-start">
     <h3 class="mt-3 fw-bold">New Releases</h3>
@@ -61,7 +70,7 @@
         <ul class="list-group-dark list-group-flush">
 
         <?php foreach ($genres as $genre) : ?>
-            <a href="/genre/<?= $genre["genre_id"] ?>">
+            <a href="/genres/<?= $genre["genre_id"] ?>">
                 <li class="list-group-item border-0 mt-2"><?= $genre['genre_name'] ?></li>
             </a>
         <?php endforeach; ?>

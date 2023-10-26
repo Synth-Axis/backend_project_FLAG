@@ -3,6 +3,13 @@
 require("models/games.php");
 require("models/genres.php");
 require("models/platforms.php");
+require("models/users.php");
+
+$modelUsers = new Users();
+
+if (isset($_SESSION["user_id"])){
+    $currentUser = $modelUsers->findUserById($_SESSION["user_id"]);
+}
 
 $modelGames = new Games();
 
@@ -34,5 +41,6 @@ if( empty($platforms)){
 foreach ( $games as $key => $game ) {
     $games[$key]["platforms"] = $modelPlatforms->findPlatformsByGame($game["game_id"]);
 }
+
 
 require("views/home.php");
