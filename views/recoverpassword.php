@@ -18,9 +18,10 @@
                                         </div>
                                         <button class="btn btn-outline-light btn-lg px-5" type="submit">Reset Password</button>
                                         <div class="d-flex justify-content-between mt-4">
-                                            <a class="" href="login">Login</a>
-                                            <a class="" href="register">Register</a>
+                                            <a class="text-white-50 fw-bold" href="login">Login</a>
+                                            <a class="text-white-50 fw-bold" href="register">Register</a>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -30,4 +31,4 @@
         </div>
     </main> 
 
-    <?php require('views/partials/footer.php') ?>
+<?php require('views/partials/footer.php') ?>
