@@ -9,26 +9,35 @@
                         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                             <div class="card bg-dark text-white" style="border-radius: 1rem;">
                                 <div class="card-body p-5 text-center">
-                                    <div class="mb-md-5 mt-md-4 pb-5">
+                                    <div class="mb-md-5 mt-md-4 pb-5">                              
                                         <h2 class="fw-bold mb-2 text-uppercase">Register</h2>
                                         <p class="text-white-50 mb-5">Create an Account!</p>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="text" id="username" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Please enter your Username</label>
-                                        </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="email" id="email" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typeEmailX">Please enter your Email</label>
-                                        </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Please enter your Password</label>
-                                        </div>
-                                        <div class="form-outline form-white mb-4">
-                                            <input type="password" id="typePasswordX" class="form-control form-control-lg" />
-                                            <label class="form-label" for="typePasswordX">Please repeat your Password</label>
-                                        </div>
-                                        <button class="btn btn-outline-light btn-lg px-5 mb-5" type="submit" method="POST">Register</button>
+                                        <?= showMessage($message) ?>
+                                        <form method="POST" action="register">
+                                            <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="text" id="username" name="username" minlength="3" maxlength="20"/>
+                                                <label class="form-label" for="username">Please enter your Username</label>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="email" id="email" name="email"/>
+                                                <label class="form-label" for="email">Please enter your Email</label>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
+                                                <label class="form-label" for="password">Please enter your Password</label>
+                                            </div>
+                                            <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="password" id="passwordCheck" name="passwordCheck" minlength="8" maxlength="255"/>
+                                                <label class="form-label" for="passwordCheck">Please repeat your Password</label>
+                                            </div>
+                                            <div>
+                                                <label>
+                                                    <input type="checkbox" id="terms"name="terms" />
+                                                    Do you agree to all the terms and conditions?
+                                                </label>
+                                            </div>
+                                            <button class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" type="submit" name="send">Register</button>
+                                        </form>
                                     <div>
                                     <p class="mb-0">Already have an account? <a href="login" class="text-white-50 fw-bold">Login</a>
                                     </p>
