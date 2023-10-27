@@ -11,7 +11,7 @@
     <div class="col-2">
         <div class="col">
             <a href="logout" class="mx-1">Logout</a>
-            <a href="account" class="mx-1">Account</a>
+            <a href="useraccount" class="mx-1">Account</a>
             <a href="contact" class="mx-1">Contact</a>
         </div>
     </div>

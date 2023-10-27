@@ -64,4 +64,25 @@ class Users extends Base{
 		
 		return $query->fetch();
     }
+
+    public function updateUserInfo($user, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                username = ?,
+                email = ?, 
+                password = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $user["username"],
+                $user["email"],
+                password_hash($user["password"], PASSWORD_DEFAULT),
+                $id
+            ]
+        );
+    }
 }
