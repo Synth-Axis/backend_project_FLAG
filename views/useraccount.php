@@ -11,7 +11,7 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img style="border-radius: 25rem;" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Photo" width="100%">
+                                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Photo" width="100%">
                                         </div>
                                         <h5 class="user-name mt-3"><?= $currentUser["username"] ?></h5>
                                         <h6 class="user-email"><?= $currentUser["email"] ?></h6>

@@ -24,7 +24,13 @@ if( isset($_POST["send"])){
             $userPassword = $currentUser["password"];
             if (password_verify($_POST["password"], $userPassword)) {
                 $_SESSION["user_id"] = $currentUser["user_id"];
-                header("Location: /");
+
+                if( $currentUser["user_type"] === "admin"){
+                    header("Location: /admin");
+                }
+                else {
+                    header("Location: /");
+                }
             }
             else{
                 $message = "Password is not valid";
@@ -32,8 +38,7 @@ if( isset($_POST["send"])){
         }
         else {
             $message = "Email is not registered";
-        }
-        
+        }  
     }
     else {
         $message = "Please fill the form correctly!";

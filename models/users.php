@@ -7,7 +7,7 @@ class Users extends Base{
 		
 		$query = $this->db->prepare("
 			SELECT 
-                user_id , username, email , password, user_type
+                user_id , username, email , password, user_photo, user_type
 			FROM 
 				users
 		");
@@ -54,7 +54,7 @@ class Users extends Base{
 		
 		$query = $this->db->prepare("
 			SELECT 
-                user_id , username, email , password, user_type
+                user_id , username, email , password, user_photo, user_type
 			FROM 
 				users
             WHERE
@@ -81,6 +81,40 @@ class Users extends Base{
                 $user["username"],
                 $user["email"],
                 password_hash($user["password"], PASSWORD_DEFAULT),
+                $id
+            ]
+        );
+    }
+
+    public function updateUsername($username, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                username = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $username["username"],
+                $id
+            ]
+        );
+    }
+
+    public function updateUserEmail($userEmail, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                email = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $userEmail["email"],
                 $id
             ]
         );

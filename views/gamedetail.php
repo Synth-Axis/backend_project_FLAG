@@ -20,7 +20,7 @@
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
                             <p class="card-text">
                             </p>
-                            <form method="POST" action="<?= ROOT ?>/cart/">
+                            <form method="POST" action="<?= ROOT ?>/ownedgames/">
                                 <div>
                                     <label>
                                         Add to your Games

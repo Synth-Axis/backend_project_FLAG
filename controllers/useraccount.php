@@ -17,6 +17,11 @@ if (!empty($_POST)){
     if(empty($_POST["email"])){
         $_POST["email"] = $currentUser["email"];
     }
+    else {
+        if(empty($_POST["password"])){
+            $message = "To change the email the password is required";
+        }
+    }
     if(empty($_POST["password"])){
         $_POST["password"] = $currentUser["password"]; //Validar pass
     }
