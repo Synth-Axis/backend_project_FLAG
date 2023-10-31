@@ -6,7 +6,7 @@ $message = "";
 
 $modelUsers = new Users();
 
-if (isset ($_POST["send"])){
+if (isset($_POST["send"])){
 
     foreach($_POST as $key => $value){
         $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
