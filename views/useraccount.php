@@ -31,18 +31,21 @@
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-outline form-white mb-4">
                                                 <label for="username">Username</label>
+                                                <input type="hidden" id="username" name="username" value="<?= $currentUser["username"] ?>">
                                                 <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="<?= $currentUser["username"] ?>" />
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-outline form-white mb-4">
                                                 <label for="email">Email</label>
+                                                <input type="hidden" id="email" name="email" value="<?= $currentUser["email"] ?>">
                                                 <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="<?= $currentUser["email"] ?>"/>
                                             </div>
                                         </div>
                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                             <div class="form-outline form-white mb-4">
                                                 <label for="password">Password</label>
+                                                <input type="hidden" id="password" name="password" value="<?= $currentUser["password"] ?>">
                                                 <input type="password" class="form-control form-control-lg" id="password" name="password"/>
                                             </div>
                                         </div>
@@ -54,14 +57,12 @@
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
-                                                <a href="/">
-                                                    <button type="button" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" >Cancel</button>
-                                                </a>
-                                                <button type="submit" id="submit" name="submit" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" mx-3>Update</button>
-                                                <?= $message ?>
+                                                <a class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" href="/">Cancel</a>
+                                                <button type="submit" id="submit" name="send" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" mx-3>Update</button>
                                             </div>
                                         </div>
                                     </div>
+                                    <?= showMessage($message) ?>
                                 </form>
                             </div>
                             

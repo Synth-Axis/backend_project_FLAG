@@ -23,32 +23,3 @@ class Ratings extends Base{
 		return $query->fetchAll();
 	}
 }
-
-
-// SELECT	
-// *
-// FROM
-// (
-// SELECT 
-// 			g.game_id, g.game_name, rg.rating_id, r.rating_score, AVG(r.rating_score) AS averageScore
-// 		FROM 
-// 			games AS g
-// 		INNER JOIN
-// 			rated_games AS rg ON(rg.game_id = g.game_id)
-// 		INNER JOIN
-// 			ratings AS r ON(r.rating_id = rg.rating_id)    
-// ) r
-// WHERE averageScore < 3.5
-
-
-
-		// SELECT 
-		// 	g.game_id, g.game_name, rg.rating_id, AVG(r.rating_score) AS averageScore
-		// FROM 
-		// 	games AS g
-		// INNER JOIN
-		// 	rated_games AS rg ON(rg.game_id = g.game_id)
-		// INNER JOIN
-		// 	ratings AS r ON(r.rating_id = rg.rating_id)
-		// WHERE 
-		// 	rg.game_id = ?

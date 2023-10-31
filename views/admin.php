@@ -12,11 +12,8 @@
                     <img class="rounded-circle" src=<?= $user['user_photo'] ?> alt="user profile picture">
                     <div class="card-body">
                         <h5 class="card-title"><?= $user['username'] ?></h5>           
-                        <p class="card-text">
                         <h5 class="card-title"><?= $user['email'] ?></h5>           
-                        <a href="/userdetail/<?= ($user['user_id']) ?>">
-                            <input type="button" class="btn btn-primary" value="User Details">
-                        </a>
+                        <a class="btn btn-primary" href="/userdetail/<?= ($user['user_id']) ?>"> User Details </a>
                     </div>
                 </div>
             <?php endforeach ?>

@@ -24,7 +24,7 @@
                     <form method="POST" action="/userdetail/<?= $user["user_id"] ?>">
                         <div class="card-body">
                             <div>
-                                <label for="username">Email</label>
+                                <label for="email">Email</label>
                                 <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="<?= $user["email"] ?>" />
                                 <div class="mt-2">    
                                     <button type="submit" name="sendEmail">Change</button>

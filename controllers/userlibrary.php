@@ -3,24 +3,17 @@
 require("models/games.php");
 require("models/genres.php");
 require("models/platforms.php");
-require("models/users.php");
 require("models/owned_games.php");
+require("models/users.php");
 
 $modelOwnedGames = new OwnedGames();
 $modelUsers = new Users();
 
+
 if (isset($_SESSION["user_id"])){
     $currentUser = $modelUsers->findUserById($_SESSION["user_id"]);
     $ownedGamesCount = $modelOwnedGames->getGamesCount($currentUser["user_id"]);
-}
-
-$modelGames = new Games();
-
-$games = $modelGames->getPreviousGames();
-
-if( empty($games)){
-    http_response_code(404);
-    die("Not found");
+    $gamesOwned = $modelOwnedGames->getGamesByOwner($currentUser["user_id"]);
 }
 
 $modelGenres = new Genres();
@@ -41,18 +34,8 @@ if( empty($platforms)){
     die("Not found");
 }
 
-foreach ( $games as $key => $game){
-    $games[$key]["platforms"] = $modelPlatforms->findPlatformsByGame($game["game_id"]);
-}
-
 if (isset($_POST["send"])){
-
-    if (!empty($currentUser)){
-        $modelOwnedGames->updateUsersGames( $currentUser["user_id"], $_POST["game_id"]);
-    }
-    else{
-    $message = "You must be logged in";
-    }
+    $modelOwnedGames->removeGameFromOwned($_SESSION["user_id"], $_POST["game_id"]);
 }
 
-require("views/oldergames.php");
+require("views/userlibrary.php");

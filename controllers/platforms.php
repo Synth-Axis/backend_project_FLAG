@@ -3,6 +3,16 @@
 require("models/games.php");
 require("models/genres.php");
 require("models/platforms.php");
+require("models/users.php");
+require("models/owned_games.php");
+
+$modelOwnedGames = new OwnedGames();
+$modelUsers = new Users();
+
+if (isset($_SESSION["user_id"])){
+    $currentUser = $modelUsers->findUserById($_SESSION["user_id"]);
+    $ownedGamesCount = $modelOwnedGames->getGamesCount($currentUser["user_id"]);
+}
 
 $modelGenres = new Genres();
 

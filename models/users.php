@@ -45,7 +45,7 @@ class Users extends Base{
             [
                 $formData["username"], 
                 $formData["email"], 
-                password_hash($formData["password"], PASSWORD_DEFAULT)
+                $formData
             ]
         );
     }
@@ -80,7 +80,7 @@ class Users extends Base{
             [
                 $user["username"],
                 $user["email"],
-                password_hash($user["password"], PASSWORD_DEFAULT),
+                $user["password"],
                 $id
             ]
         );
@@ -97,7 +97,7 @@ class Users extends Base{
 		");
         $query->execute( 
             [
-                $username["username"],
+                $username,
                 $id
             ]
         );
@@ -114,7 +114,7 @@ class Users extends Base{
 		");
         $query->execute( 
             [
-                $userEmail["email"],
+                $userEmail,
                 $id
             ]
         );

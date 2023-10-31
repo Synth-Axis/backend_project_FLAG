@@ -17,13 +17,18 @@
                     <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
                         <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $game['game_name'] ?></h5>           
+                            <p class="card-title h5"><?= $game['game_name'] ?></p>           
                             <p class="card-text">
                             <?php foreach($game["platforms"] as $platform) : ?>
                                <?= $platform["platformName"] ?>
                             <?php endforeach ?>
                             </p>
-                            <input type="button" class="btn btn-primary" value="Add to your Games">
+                            <form class="mb-2" method="POST" action="latest">
+                                <div>
+                                    <input type="hidden" name="game_id" value="<?= $game["game_id"] ?>">
+                                    <button type="submit" class="btn btn-primary" name="send">Add to your Games</button>
+                                </div>
+                            </form>
                             <a href="/gamedetail/<?= $game['game_id'] ?>" class="btn btn-primary">More</a>
                         </div>
                     </div>

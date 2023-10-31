@@ -16,12 +16,12 @@ if( empty($user)){
     die("Não encontrado");
 }
 
-if ( !empty($_POST["username"])){
-    $model->updateUsername( $_POST, $id );
+if ( isset($_POST["sendUser"])){
+    $model->updateUsername( $_POST["username"], $id );
 }
 
-if ( !empty($_POST["email"])){
-    $model->updateUserEmail( $_POST, $id );
+if ( isset($_POST["sendEmail"])){
+    $model->updateUserEmail( $_POST["email"], $id );
 }
 
 require ("views/userdetail.php");

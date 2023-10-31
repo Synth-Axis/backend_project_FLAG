@@ -24,6 +24,7 @@ if (isset ($_POST["send"])){
         $_POST["password"] === $_POST["passwordCheck"] &&
         isset($_POST["terms"])
     ){
+        password_hash($_POST["password"], PASSWORD_DEFAULT);
         $userEmail = $modelUsers->findUserByEmail($_POST["email"]);
 
         if( empty( $userEmail )){
