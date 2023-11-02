@@ -19,21 +19,15 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>           
                             <p class="card-text">
+                                Brevemente será adicionada descrição do jogo.
                             </p>
-                            <form method="POST" action="<?= ROOT ?>/ownedgames/">
+                            <form class="mb-2" method="POST" action="/gamedetail/<?= $game["game_id"] ?>">
                                 <div>
-                                    <label>
-                                        Add to your Games
-                                        <input 
-                                            type="number" 
-                                            name="quantity" 
-                                            required 
-                                            value="1">
-                                    </label>
                                     <input type="hidden" name="game_id" value="<?= $game["game_id"] ?>">
-                                    <button type="submit" name="send">Add </button>
+                                    <button type="submit" class="btn btn-primary" name="send">Add to your Games</button>
                                 </div>
                             </form>
+                            <p><?= showMessage($message) ?></p>
                         </div>
                     </div>
                 </div>

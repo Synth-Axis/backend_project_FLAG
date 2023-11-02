@@ -3,10 +3,13 @@
 require("models/users.php");
 
 $message = "";
+$code = "";
 
 $modelUsers = new Users();
 
 if (isset($_POST["send"])){
+
+    // $code = bin2hex(random_bytes(2));
 
     foreach($_POST as $key => $value){
         $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
@@ -43,6 +46,12 @@ function showMessage ($message){
     if( isset($message)){
         echo '<p role="alert">' .$message. '</p>';
         } 
-} 
+}
+
+// function showCaptcha ($code){
+//     if( isset($code)){
+//         echo '<p>' .$code. '</p>';
+//         } 
+// }
 
 require ("views/register.php");

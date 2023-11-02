@@ -1,7 +1,10 @@
 <?php
 
 require("Core/corepageconfig.php");
+require("Core/basefunctions.php");
 require("models/ratings.php");
+
+$message = "";
 
 $modelRatings = new Ratings();
 

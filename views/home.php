@@ -10,8 +10,8 @@
             <div class="col-3">
                 <?php require("views/partials/aside.php") ?>
             </div>
-            
             <div class="col-9">
+                <p><?= showMessage($message) ?></p>
                 <div class="row d-flex justify-content-center">
                 <?php foreach ($games as $game) : ?>
                     <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
@@ -35,7 +35,6 @@
                 <?php endforeach ?>
                 </div>
             </div>
-            
         </div>
     </div>
 

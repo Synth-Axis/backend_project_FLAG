@@ -1,6 +1,9 @@
 <?php
 
 require("Core\corepageconfig.php");
+require("Core\basefunctions.php");
+
+$message = "";
 
 $games = $modelGames->getLatestGames();
 
