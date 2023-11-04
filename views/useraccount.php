@@ -11,11 +11,9 @@
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img class="rounded-circle mb-1" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Photo" width="100%">
+                                            <img class="rounded-circle mb-1" src="<?= $currentUser["user_photo"] ?>" alt="User Photo" width="100%">
                                             <form method="POST" action="useraccount" enctype="multipart/form-data">
-                                           
                                                 <input type="file" name="avatar" accept="<?= implode(",", $allowed_formats) ?>">
-                                           
                                                 <button type="submit" name="sendImage" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3">Change Avatar</button>
                                             </form>
                                         </div>

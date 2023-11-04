@@ -119,4 +119,21 @@ class Users extends Base{
             ]
         );
     }
+
+    public function updateUserPhoto($photo, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                user_photo = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $photo,
+                $id
+            ]
+        );
+    }
 }

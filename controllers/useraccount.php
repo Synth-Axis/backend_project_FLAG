@@ -1,14 +1,9 @@
 <?php
 
+require("Core/basefunctions.php");
 require("models/users.php");
 
 $message = "";
-
-function showMessage ($message){
-    if( isset($message)){
-        echo '<p role="alert">' .$message. '</p>';
-        } 
-} 
 
 $modelUsers = new Users();
 
@@ -49,11 +44,13 @@ if ( isset($_POST["sendImage"])) {
         $_FILES["avatar"]["size"] <= 2 * 1024 * 1024 &&
         in_array($_FILES["avatar"]["type"], $allowed_formats)
     ) {
-
         $file_extension = array_search($_FILES["avatar"]["type"], $allowed_formats);
         $filename = date("YmHis") . "_" . mt_rand(100000, 999999) . "." . $file_extension;
-
         move_uploaded_file($_FILES["avatar"]["tmp_name"], "assets/avatars/" . $filename);
+
+        $imgPath = "assets/avatars/" . $filename;
+
+        $modelUsers->updateUserPhoto($imgPath, $_SESSION["user_id"]); 
     }
 }
 
