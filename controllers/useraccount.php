@@ -37,78 +37,24 @@ if (isset($_POST["send"])){
     }
 }
 
+$allowed_formats = [
+    "jpg" => "image/jpeg",
+    "png" => "image/png"
+];
+
+if ( isset($_POST["sendImage"])) {
+    if(
+        $_FILES["avatar"]["error"] === 0 &&
+        $_FILES["avatar"]["size"] > 0 &&
+        $_FILES["avatar"]["size"] <= 2 * 1024 * 1024 &&
+        in_array($_FILES["avatar"]["type"], $allowed_formats)
+    ) {
+
+        $file_extension = array_search($_FILES["avatar"]["type"], $allowed_formats);
+        $filename = date("YmHis") . "_" . mt_rand(100000, 999999) . "." . $file_extension;
+
+        move_uploaded_file($_FILES["avatar"]["tmp_name"], "assets/avatars/" . $filename);
+    }
+}
+
 require("views/useraccount.php");
-
-// <?php
-// // echo "<pre>";
-// // print_r($_FILES);
-// // echo "</pre>";
-
-// $allowed_formats = [
-
-//     "pdf" => "application/pdf",
-//     "docx" => "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-//     "odt" => "application/vnd.oasis.opendocument.text",
-//     "jpg" => "image/jpeg"
-// ];
-
-// if ( isset($_POST["send"])) {
-//     if(
-//         !empty($_POST["full_name"]) &&
-//         mb_strlen($_POST["full_name"]) <= 120 &&
-//         $_FILES["cv"]["error"] === 0 &&
-//         $_FILES["cv"]["size"] > 0 &&
-//         $_FILES["cv"]["size"] <= 2 * 1024 * 1024 && //menor ou igual a 2MB
-//         in_array($_FILES["cv"]["type"], $allowed_formats)
-//         // ... mais validações dos outros campos
-//     ) {
-
-//         $file_extension = array_search($_FILES["cv"]["type"], $allowed_formats);
-//         $filename = date("YmHis") . "_" . mt_rand(100000, 999999) . "." . $file_extension;
-
-//         move_uploaded_file($_FILES["cv"]["tmp_name"], "uploads/" . $filename);
-//     }
-// }
-
-// ?>
-
-// <!DOCTYPE html>
-// <html lang="pt">
-//     <head>
-//         <meta charset="utf-8">
-//         <title>Como lidar com uplaod de ficheiros</title>
-//     </head>
-//     <body>
-//         <h1>Submeta o seu CV</h1>
-//         <form method="POST" action="file11.php" enctype="multipart/form-data">
-//             <div>
-//                 <label>
-//                     Nome
-//                     <input type="text" name="full_name" required>
-//                 </label>
-//             </div>
-
-//             <div>
-//                 <label>
-//                     Cargo
-//                     <select name="job">
-//                         <option >Professor</option>
-//                         <option >Canalizador</option>
-//                         <option >Programador</option>
-//                     </select>
-//                 </label>
-//             </div>
-//             <div>
-//                 <label>
-//                     Curriculum
-//                     <input type="file" name="cv" required accept="<?= implode(",", $allowed_formats) ?>">
-//                 </label>
-//             </div>
-//             <div>
-//                 <button type="submit" name="send">Enviar</button>
-//                 </label>
-//             </div>
-
-//         </form>
-//     </body>
-// </html>

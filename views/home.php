@@ -10,26 +10,22 @@
             <div class="col-3">
                 <?php require("views/partials/aside.php") ?>
             </div>
-            <div class="col-9">
+            <div class="col-9 text-light bg-dark">
                 <p><?= showMessage($message) ?></p>
                 <div class="row d-flex justify-content-center">
                 <?php foreach ($games as $game) : ?>
-                    <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
-                        <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
+                    <div class="card px-0 mx-2 my-2 bg-dark bg-gradient text-light border-0" style="width: 19rem">
+                        <img class="object-fit-cover" src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover" style="height:250px ; width: 100%">
                         <div class="card-body">
-                            <h5 class="card-title"><?= $game['game_name'] ?></h5>           
+                            <p class="card-title h5"><?= $game['game_name'] ?></p>           
                             <p class="card-text">
                             <?php foreach($game["platforms"] as $platform) : ?>
                                <?= $platform["platformName"] ?>
                             <?php endforeach ?>
                             </p>
-                            <form class="mb-2" method="POST" action="home">
-                                <div>
-                                    <input type="hidden" name="game_id" value="<?= $game["game_id"] ?>">
-                                    <button type="submit" class="btn btn-primary" name="send">Add to your Games</button>
-                                </div>
-                            </form>
-                            <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary">More</a>
+                            <div>
+                                <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary">More</a>
+                            </div>
                         </div>
                     </div>
                 <?php endforeach ?>

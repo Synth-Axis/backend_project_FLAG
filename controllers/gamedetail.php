@@ -3,7 +3,8 @@
 require("Core\corepageconfig.php");
 require("Core\basefunctions.php");
 
-$message = "";
+require("models/ratings.php");
+$modelRatings = new Ratings();
 
 if ( empty($id) || !is_numeric($id)){
     http_response_code(400);
@@ -16,14 +17,12 @@ if( empty($game)){
     die("Não encontrado");
 }
 
-if (isset($_POST["send"])){
+$games = $modelGames->getAllGames();
 
-    if (!empty($currentUser)){
-        $modelOwnedGames->updateUsersGames( $currentUser["user_id"], $_POST["game_id"]);
-    }
-    else{
-    $message = "You must be logged in";
-    }
+foreach ( $games as $key => $gameData ) {
+    $gameData["platforms"] = $modelPlatforms->findPlatformsByGame($gameData["game_id"]);
 }
+
+$rating = $modelRatings->getAverageRatingById($game["game_id"]);
 
 require ("views/gamedetail.php");

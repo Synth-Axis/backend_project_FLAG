@@ -56,7 +56,7 @@ class OwnedGames extends Base{
             DELETE FROM
                 owned_games
             WHERE
-                user_id = ? && game_id = ?
+                user_id = ? AND game_id = ?
 
 		");
         $query->execute( 

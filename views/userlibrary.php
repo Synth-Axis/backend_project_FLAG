@@ -14,15 +14,15 @@
             <div class="col-9">
                 <div class="row d-flex justify-content-center">
                 <?php foreach ($gamesOwned as $game) : ?>
-                    <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
-                        <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
+                    <div id="gameCard" class="card px-0 mx-2 my-2 bg-dark bg-gradient text-white border-0" style="width: 19rem">
+                        <img class="object-fit-cover" src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
                         <div class="card-body">
                             <h5 class="card-title"><?= $game['game_name'] ?></h5>     
                             <form method="POST" action="userlibrary">
-                                <input type="submit" class="btn btn-primary" value="Remove Game" name="send" />
+                                <input type="button" class="btn btn-warning" value="Remove Game" name="send" id="removeGame"/>
                                 <input type="hidden" value="<?= $game['game_id']?>" name="game_id"/>
                             </form>
-                            <a href="/gamedetail/<?= ($game['game_id']) ?>" class="btn btn-primary mt-3">More</a>
+                            <button type="button" class="btn btn-success mt-3">Play</a>
                         </div>
                     </div>
                 <?php endforeach ?>

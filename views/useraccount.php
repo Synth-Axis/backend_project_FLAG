@@ -5,13 +5,19 @@
         <div class="container text-center">
             <section class="vh-100 gradient-custom">
                 <div class="container py-5 row gutters">
-                    <div class="row d-flex justify-content-center align-items-center col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="row d-flex justify-content-center align-items-center col-4">
                         <div class="card h-100 bg-dark text-white">
                             <div class="card-body">
                                 <div class="account-settings">
                                     <div class="user-profile">
                                         <div class="user-avatar">
-                                            <img class="rounded-circle" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Photo" width="100%">
+                                            <img class="rounded-circle mb-1" src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Photo" width="100%">
+                                            <form method="POST" action="useraccount" enctype="multipart/form-data">
+                                           
+                                                <input type="file" name="avatar" accept="<?= implode(",", $allowed_formats) ?>">
+                                           
+                                                <button type="submit" name="sendImage" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3">Change Avatar</button>
+                                            </form>
                                         </div>
                                         <h5 class="user-name mt-3"><?= $currentUser["username"] ?></h5>
                                         <h6 class="user-email"><?= $currentUser["email"] ?></h6>
@@ -20,7 +26,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="col-8">
                         <div class="card h-100 bg-dark text-white">
                             <div class="card-body">
                                 <form method="POST" action="useraccount">
@@ -58,7 +64,7 @@
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
                                                 <a class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" href="/">Cancel</a>
-                                                <button type="submit" id="submit" name="send" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" mx-3>Update</button>
+                                                <button type="submit" id="submit" name="send" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" >Update</button>
                                             </div>
                                         </div>
                                     </div>

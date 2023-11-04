@@ -7,9 +7,8 @@
 
     <h3 class="mt-3 fw-bold"><?= $currentUser["username"] ?></h3>
     <ul class="list-group-dark list-group-flush">
-        <li class="list-group-item border-0 mt-2">Wishlist</li>
         <a href="/userlibrary">
-            <li class="list-group-item border-0">My Library (<?= $ownedGamesCount["gamesOwned"] ?>)</li>
+            <li class="list-group-item border-0">My Library (<span id="gameCounter"><?= intval($ownedGamesCount["gamesOwned"]) ?></span>)</li>
         </a>
     </ul>
 <?php  
