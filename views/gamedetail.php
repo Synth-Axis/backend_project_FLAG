@@ -1,4 +1,3 @@
-
 <?php require('views/partials/head.php') ?>
 
 <body class="text-light bg-dark">
@@ -12,7 +11,7 @@
                 <?php require("views/partials/aside.php") ?>
             </div>
             
-            <div class="col-9 border border-dark">
+            <div id="innerContainer" class="col-9 border border-dark">
                 <div class="row d-flex justify-content-center">
                 <div class="card px-0 mx-2 my-2 bg-dark bg-gradient text-white border border-dark">
             </div>
@@ -45,11 +44,10 @@
                                     <div class="col-lg-6">
                                         <a href="/" class="btn btn-secondary w-100">Back</a>
                                     </div>
-                                    <div class="col-lg-6 pb-2">
+                                    <div id="buttons" class="col-lg-6 pb-2">
                                         <button data-game_id="<?= $game["game_id"] ?>" type="button" class="btn btn-success" id="addGame">Add to your Games</button>
                                         <input type="hidden" name="game_id" value="<?= $game["game_id"] ?>">
                                     </div>
-                                <p><?= showMessage($message) ?></p>
                                 </div>
                             </div>
                         </div>

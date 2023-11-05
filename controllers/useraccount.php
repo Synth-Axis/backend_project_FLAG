@@ -29,7 +29,7 @@ if (isset($_POST["send"])){
             $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
         }
         $modelUsers->updateUserInfo($_POST, $_SESSION["user_id"]);
-    }
+    } //mudar else em cima
 }
 
 $allowed_formats = [

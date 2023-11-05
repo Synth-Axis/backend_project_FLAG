@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
     const deleteButtons = document.querySelectorAll("#removeGame");
     const addButtons = document.querySelectorAll("#addGame");
+    // const updatePhoto = document.querySelector("#sendImage");
 
     for (let deleteButton of deleteButtons) {
     
@@ -40,10 +41,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 },
                 body: "request=addGamesToUserList&game_id=" + gameId
             })
-            .then(response => response.json())
-            .then(result => {
-                console.log(result);
-            });
+                .then(response => response.json())
+                .then(result => {
+                    const p = document.createElement("p");
+                    document.querySelector("#innerContainer").appendChild(p).innerHTML = result.message;
+                });
         });
     }
 });
+
+    // updatePhoto.addEventListener("click", () => {
+
+    //     userId = updatePhoto.dataset.user_id;
+
+
+    //     fetch("/requests/", {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/x-www-form-urlencoded"
+    //         },
+    //         body: "request=updateUserPhoto&user_id=" + userId
+    //     })
+    //         .then(response => response.json())
+    //         .then(result => {
+    //             console.log(result);
+    //         });
+    // });
