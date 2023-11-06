@@ -1,9 +1,14 @@
 <?php
 
 require("models/users.php");
+require("Core/basefunctions.php");
 
 $message = "";
 $code = "";
+$_SESSION["username"] = "";
+$_SESSION["email"] = "";
+
+
 
 $modelUsers = new Users();
 
@@ -36,22 +41,19 @@ if (isset($_POST["send"])){
         }
         $message = "Email already exists";
     }
-    else{
-        $message = "Please fill the form correctly";
+    else if($_POST["password"] !== $_POST["passwordCheck"]){
+        $message = "Passwords do not match";
     }
-
+    else {
+        $message = "All fields are mandatory";
+        $_SESSION["username"] = retainFormData($_POST["username"]);
+        $_SESSION["email"] = retainFormData($_POST["email"]);
+    }
 }
 
-function showMessage ($message){
-    if( isset($message)){
-        echo '<p role="alert">' .$message. '</p>';
-        } 
+function retainFormData($formData) {
+    $formData = htmlspecialchars(strip_tags(trim($formData)));
+    return $formData;
 }
-
-// function showCaptcha ($code){
-//     if( isset($code)){
-//         echo '<p>' .$code. '</p>';
-//         } 
-// }
 
 require ("views/register.php");

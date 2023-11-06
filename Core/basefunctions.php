@@ -9,7 +9,7 @@ function dd($var){
 
 function showMessage ($message){
     if( isset($message)){
-        echo '<p role="alert">' .$message. '</p>';
+        echo '<p role="alert" class="text-warning">' .$message. '</p>';
         } 
 }
 

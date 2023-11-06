@@ -1,6 +1,9 @@
 <?php
 
+require("Core/basefunctions.php");
+
 $message = "";
+$_SESSION["email"] = "";
 
 if( isset($_POST["send"])){
 
@@ -38,6 +41,7 @@ if( isset($_POST["send"])){
         }
         else {
             $message = "Email is not registered";
+            $_SESSION["email"] = retainFormData($_POST["email"]);
         }  
     }
     else {
@@ -45,10 +49,9 @@ if( isset($_POST["send"])){
     }
 }
 
-function showMessage ($message){
-    if( isset($message)){
-        echo '<p role="alert">' .$message. '</p>';
-        } 
+function retainFormData($formData) {
+    $formData = htmlspecialchars(strip_tags(trim($formData)));
+    return $formData;
 }
 
 require("views/login.php");

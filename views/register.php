@@ -15,11 +15,11 @@
                                         <?= showMessage($message) ?>
                                         <form method="POST" action="register">
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="text" id="username" name="username" minlength="3" maxlength="20"/>
+                                                <input class="form-control form-control-lg" type="text" id="username" name="username" value="<?= $_SESSION["username"] ?>" minlength="3" maxlength="20"/>
                                                 <label class="form-label" for="username">Please enter your Username</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="email" id="email" name="email"/>
+                                                <input class="form-control form-control-lg" type="email" id="email" name="email"value="<?= $_SESSION["email"] ?>" />
                                                 <label class="form-label" for="email">Please enter your Email</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">

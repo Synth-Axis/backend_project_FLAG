@@ -12,14 +12,14 @@
                                     <div class="mb-md-5 mt-md-4 pb-5">
                                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                         <p class="text-white-50 mb-5">Please enter your login and password!</p>
-                                        <?= showMessage($message) ?>
+                                        <p class="text-warning"><?= showMessage($message) ?></p>
                                         <form method="POST" action="login">
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="email" id="email" name="email"/>
+                                                <input class="form-control form-control-lg" type="email" id="email" name="email" value="<?= $_SESSION["email"] ?>"/>
                                                 <label class="form-label" for="email">Email</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
+                                                <input class="form-control form-control-lg" type="password" id="password" name="password" value="<?= $_SESSION["password"] ?>" minlength="8" maxlength="255"/>
                                                 <label class="form-label" for="password">Password</label>
                                             </div>
                                             <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverpassword">Forgot password?</a></p>

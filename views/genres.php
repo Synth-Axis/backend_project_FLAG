@@ -20,7 +20,7 @@
                             <p class="card-text">
                             </p>
                             <a href="/genregames/<?= $genre['genre_id'] ?>" class="btn btn-primary">
-                                <input type="button" class="btn btn-primary" value="Check Games">
+                                Check Games
                             </a>
                         </div>
                     </div>

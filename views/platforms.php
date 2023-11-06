@@ -20,7 +20,7 @@
                             <p class="card-text">
                             </p>
                             <a href="/platformgames/<?= $platform['platform_id'] ?>" class="btn btn-primary">
-                                <input type="button" class="btn btn-primary" value="Check Games">
+                                Check Games
                             </a>
                         </div>
                     </div>
