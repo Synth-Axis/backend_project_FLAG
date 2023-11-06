@@ -3,7 +3,7 @@
 require("Core/basefunctions.php");
 
 $message = "";
-$_SESSION["email"] = "";
+$email = "";
 
 if( isset($_POST["send"])){
 
@@ -37,15 +37,16 @@ if( isset($_POST["send"])){
             }
             else{
                 $message = "Password is not valid";
+                $email = retainFormData($_POST["email"]);
             }             
         }
         else {
             $message = "Email is not registered";
-            $_SESSION["email"] = retainFormData($_POST["email"]);
         }  
     }
     else {
         $message = "Please fill the form correctly!";
+        $email = retainFormData($_POST["email"]);
     }
 }
 

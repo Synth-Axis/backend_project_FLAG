@@ -5,10 +5,8 @@ require("Core/basefunctions.php");
 
 $message = "";
 $code = "";
-$_SESSION["username"] = "";
-$_SESSION["email"] = "";
-
-
+$email = "";
+$username = "";
 
 $modelUsers = new Users();
 
@@ -46,8 +44,8 @@ if (isset($_POST["send"])){
     }
     else {
         $message = "All fields are mandatory";
-        $_SESSION["username"] = retainFormData($_POST["username"]);
-        $_SESSION["email"] = retainFormData($_POST["email"]);
+        $username = retainFormData($_POST["username"]);
+        $email = retainFormData($_POST["email"]);
     }
 }
 
