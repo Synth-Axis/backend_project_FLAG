@@ -7,7 +7,11 @@ $message = "";
 
 $modelUsers = new Users();
 
-if (isset($_SESSION["user_id"])){
+if (!isset($_SESSION["user_id"])){
+    http_response_code(403);
+    die("Forbidden");
+}
+else{
     $currentUser = $modelUsers->findUserById($_SESSION["user_id"]);
 }
 
@@ -29,7 +33,7 @@ if (isset($_POST["send"])){
             $_POST["password"] = password_hash($_POST["password"], PASSWORD_DEFAULT);
         }
         $modelUsers->updateUserInfo($_POST, $_SESSION["user_id"]);
-    } //mudar else em cima
+    }
 }
 
 $allowed_formats = [

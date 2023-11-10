@@ -14,7 +14,7 @@
                                             <img class="rounded-circle mb-1 object-fit-cover" src="<?= $currentUser["user_photo"] ?>" alt="User Photo" style="width: 200px; height: 200px">
                                             <form method="POST" action="useraccount" enctype="multipart/form-data">
                                                 <input type="file" name="avatar" accept="<?= implode(",", $allowed_formats) ?>">
-                                                <button data-game_id="<?= $currentUser["user_id"] ?>" type="submit" name="sendImage" id="sendImage" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3">Change Avatar</button>
+                                                <button data-user_id="<?= $currentUser["user_id"] ?>" type="submit" name="sendImage" id="sendImage" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3">Change Avatar</button>
                                             </form>
                                         </div>
                                         <h5 class="user-name mt-3"><?= $currentUser["username"] ?></h5>

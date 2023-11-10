@@ -1,7 +1,7 @@
 <?php
 
-require("Core\corepageconfig.php");
-require("Core\basefunctions.php");
+require("Core/corepageconfig.php");
+require("Core/basefunctions.php");
 
 $message = "";
 
@@ -11,7 +11,7 @@ if ( empty($id) || !is_numeric($id)){
 }
 
 foreach ( $genres as $key => $genre ) {
-    $genres[$key]["games"] = $modelGames->findGamesByGenre($genre[("genre_id")]);
+    $genres[$id]["games"] = $modelGames->findGamesByGenre($id);
 }
 
 require ("views/genregames.php");

@@ -9,7 +9,7 @@
             <div class="row d-flex justify-content-center">
                 <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
                     <form method="POST" action="/userdetail/<?= $user["user_id"] ?>">
-                        <img src=<?= $user['user_photo'] ?> class="card-img-top" alt="user profile photo">
+                        <img src=<?= ROOT . $user["user_photo"] ?> class="rounded-circle mb-1 mt-3 object-fit-cover" alt="user profile photo" style="width: 200px; height: 200px">
                         <div class="card-body">
                             <div>
                                 <label for="username">Username</label>

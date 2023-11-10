@@ -2,13 +2,14 @@
     <a href="/"><h3 class="mt-3 fw-bold">Home</h3></a>
 
 <?php
-    if( isset($_SESSION["user_id"]) ){         
+    if( isset($_SESSION["user_id"]) )
+    {
 ?>
 
     <h3 class="mt-3 fw-bold"><?= $currentUser["username"] ?></h3>
     <ul class="list-group-dark list-group-flush">
         <a href="/userlibrary">
-            <li class="list-group-item border-0">My Library (<span id="gameCounter"><?= intval($ownedGamesCount["gamesOwned"]) ?></span>)</li>
+            <li class="list-group-item border-0">My Library (<span id="gameCounter"><?= $ownedGamesCount["gamesOwned"] ?></span>)</li>
         </a>
     </ul>
 <?php  
@@ -59,7 +60,7 @@
                 <a href="/platformgames/<?= $platform["platform_id"] ?>">
                     <li class="list-group-item border-0 mt-2"><?= $platform['platform_name'] ?></li>
                 </a>
-            <?php endforeach; ?>
+            <?php endforeach ?>
         </ul>
 </div>
 

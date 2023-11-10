@@ -4,6 +4,7 @@ header("Content-Type: application/json");
 
 require("Core/basefunctions.php");
 require("models/owned_games.php");
+require("models/users.php");
 
 if ( $_POST["request"] === "removeGameFromOwned" ){
     
@@ -27,5 +28,13 @@ if ($_POST["request"] === "addGamesToUserList") {
         }
     } else {
         echo '{"message" : "User must be logged in"}';
+    }
+}
+
+if ($_POST["request"] === "updateUserPhoto") {
+    if (isset($_SESSION["user_id"])) {
+        $modelUsers = new Users();
+        $modelUsers->updateUserPhoto($_POST["avatar"], $_SESSION["user_id"]);
+        echo '{"message" : "OK"}';
     }
 }

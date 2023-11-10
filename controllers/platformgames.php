@@ -10,8 +10,10 @@ if ( empty($id) || !is_numeric($id)){
     die("Request inválido");
 }
 
+$platformsIds = $modelPlatforms->getPlatforms();
+
 foreach ( $platforms as $key => $platform ) {
-    $platforms[$key]["games"] = $modelGames->findGamesByPlatform($id);
+    $platforms[$id]["games"] = $modelGames->findGamesByPlatform($id);
 }
 
 require ("views/platformgames.php");

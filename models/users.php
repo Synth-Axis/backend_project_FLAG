@@ -45,7 +45,7 @@ class Users extends Base{
             [
                 $formData["username"], 
                 $formData["email"], 
-                $formData
+                $formData["password"]
             ]
         );
     }

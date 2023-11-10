@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
                 
     const deleteButtons = document.querySelectorAll("#removeGame");
-    const addButtons = document.querySelectorAll("#addGame");
-    // const updatePhoto = document.querySelector("#sendImage");
+    const addButton = document.querySelector("#addGame");
 
     for (let deleteButton of deleteButtons) {
     
@@ -23,47 +22,35 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(result => {
                 if (result.message === "OK") {
                     gameCard.remove();
+                    let gamesCounter = parseInt(document.querySelector("#gameCounter").textContent);
+                    gamesCounter = gamesCounter - 1;
+                    document.querySelector("#gameCounter").textContent = gamesCounter;
+                    console.log(gamesCounter);
                 }
             });
         });
     }
 
-    for (let addButton of addButtons) {
-        
-        addButton.addEventListener("click", () => {
+    addButton.addEventListener("click", () => {
 
-            const gameId = addButton.dataset.game_id;
+        const gameId = addButton.dataset.game_id;
 
-            fetch("/requests/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "request=addGamesToUserList&game_id=" + gameId
-            })
-                .then(response => response.json())
-                .then(result => {
-                    const p = document.createElement("p");
-                    document.querySelector("#innerContainer").appendChild(p).innerHTML = result.message;
-                });
-        });
-    }
+        fetch("/requests/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "request=addGamesToUserList&game_id=" + gameId
+        })
+            .then(response => response.json())
+            .then(result => {
+                const p = document.createElement("p");
+                document.querySelector("#innerContainer").appendChild(p).textContent = result.message;
+                let gamesCounter = parseInt(document.querySelector("#gameCounter").textContent);
+                gamesCounter = gamesCounter + 1;
+                document.querySelector("#gameCounter").textContent = gamesCounter;
+            });
+    });
 });
 
-    // updatePhoto.addEventListener("click", () => {
-
-    //     userId = updatePhoto.dataset.user_id;
-
-
-    //     fetch("/requests/", {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/x-www-form-urlencoded"
-    //         },
-    //         body: "request=updateUserPhoto&user_id=" + userId
-    //     })
-    //         .then(response => response.json())
-    //         .then(result => {
-    //             console.log(result);
-    //         });
-    // });
+    
