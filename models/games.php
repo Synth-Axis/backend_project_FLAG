@@ -151,4 +151,19 @@ class Games extends Base{
 		return $query->fetchAll();
     }
 
+	public function searchGames($searchString){
+
+        $query = $this->db->prepare("
+			SELECT * 
+				FROM games 
+			WHERE game_name LIKE ?
+        ");
+
+        $query->execute([$searchString]);
+		
+		return $query->fetchAll();
+    }
+
+
+
 }

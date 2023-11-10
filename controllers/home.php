@@ -16,4 +16,6 @@ foreach ( $games as $key => $game ) {
     $games[$key]["platforms"] = $modelPlatforms->findPlatformsByGame($game["game_id"]);
 }
 
+$platformsAsideMenu = $modelPlatforms->getPlatforms();
+
 require("views/home.php");

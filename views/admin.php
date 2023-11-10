@@ -2,7 +2,7 @@
 
 <body class="text-light bg-dark">
     <div class="container text-center">
-        <div class="row mt-3">
+        <div class="row mt-3 d-flex align-items-center">
             <?php require('views/partials/nav.php') ?>
         </div>   
         <div class="col-12 mt-5">
@@ -14,7 +14,7 @@
                         <div class="card-body">
                             <h5 class="card-title"><?= $user['username'] ?></h5>           
                             <h5 class="card-title"><?= $user['email'] ?></h5>           
-                            <a class="btn btn-primary" href="/userdetail/<?= ($user['user_id']) ?>"> User Details </a>
+                            <a class="btn btn-outline-light btn-lg px-3 mx-2" href="/userdetail/<?= ($user['user_id']) ?>"> User Details </a>
                         </div>
                     </div>
                 </div>

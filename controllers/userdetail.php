@@ -1,6 +1,7 @@
 <?php
 
 require("models/users.php");
+require("Core/basefunctions.php");
 
 $modelUsers = new Users();
 
@@ -17,11 +18,16 @@ if( empty($user)){
 }
 
 if ( isset($_POST["sendUser"])){
-    $model->updateUsername( $_POST["username"], $id );
+    $modelUsers->updateUsername( $_POST["username"], $id );
 }
 
 if ( isset($_POST["sendEmail"])){
-    $model->updateUserEmail( $_POST["email"], $id );
+    $modelUsers->updateUserEmail( $_POST["email"], $id );
+}
+
+if ( isset($_POST["deleteAccount"])){
+    $modelUsers->deleteAccount( $_POST["user_id"] );
+    header("Location: /admin");
 }
 
 require ("views/userdetail.php");

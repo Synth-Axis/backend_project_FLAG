@@ -14,6 +14,8 @@ $modelUsers = new Users();
 
 $genres = $modelGenres->getAll();
 $platforms = $modelPlatforms->getPlatforms();
+$platformsAsideMenu = $modelPlatforms->getPlatforms();
+$genresAsideMenu = $modelGenres->getAll();
 
 if( empty($genres)){
     http_response_code(404);

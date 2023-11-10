@@ -136,4 +136,18 @@ class Users extends Base{
             ]
         );
     }
+
+    public function deleteAccount($id) {
+		
+		$query = $this->db->prepare("
+			DELETE FROM users
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $id
+            ]
+        );
+    }
 }

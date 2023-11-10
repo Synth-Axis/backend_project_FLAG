@@ -56,9 +56,9 @@
 <div class="row mx-4 mt-4 text-start">
     <h3 class="mt-3 fw-bold">Platforms</h3>
         <ul class="list-group-dark list-group-flush">
-            <?php foreach ($platforms as $platform) : ?>
-                <a href="/platformgames/<?= $platform["platform_id"] ?>">
-                    <li class="list-group-item border-0 mt-2"><?= $platform['platform_name'] ?></li>
+            <?php foreach ($platformsAsideMenu as $platformAsideMenu) : ?>
+                <a href="/platformgames/<?= $platformAsideMenu["platform_id"] ?>">
+                    <li class="list-group-item border-0 mt-2"><?= $platformAsideMenu['platform_name'] ?></li>
                 </a>
             <?php endforeach ?>
         </ul>
@@ -68,9 +68,9 @@
     <h3 class="mt-3 fw-bold">Genres</h3>
         <ul class="list-group-dark list-group-flush">
 
-        <?php foreach ($genres as $genre) : ?>
-            <a href="/genregames/<?= $genre["genre_id"] ?>">
-                <li class="list-group-item border-0 mt-2"><?= $genre['genre_name'] ?></li>
+        <?php foreach ($genresAsideMenu as $genreAsideMenu) : ?>
+            <a href="/genregames/<?= $genreAsideMenu["genre_id"] ?>">
+                <li class="list-group-item border-0 mt-2"><?= $genreAsideMenu['genre_name'] ?></li>
             </a>
         <?php endforeach; ?>
         </ul>
