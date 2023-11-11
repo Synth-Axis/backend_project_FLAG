@@ -150,4 +150,22 @@ class Users extends Base{
             ]
         );
     }
+
+    public function setPasswordToken($token, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                password_token = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $token,
+                $id
+            ]
+        );
+    }
+    
 }

@@ -10,14 +10,17 @@
                             <div class="card bg-dark text-white" style="border-radius: 1rem;">
                                 <div class="card-body p-5 text-center">
                                     <div class="mb-md-5 mt-md-4 pb-5">
-                                        <h2 class="fw-bold mb-2 text-uppercase">Reset Password</h2>
-                                        <p class="text-white-50 mb-5">Enter your email address and we'll send you an email with instructions to reset your password.</p>
-                                        <form method="POST" action="recoverpassword">
-                                            <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="email" id="user_email" name ="user_email" />
-                                                <label class="form-label" for="user_email">Enter your email</label>
+                                        <h2 class="fw-bold mb-2 text-uppercase mb-5">Set New Password</h2>
+                                        <form method="POST" action="recoverypassword">
+                                        <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
+                                                <label class="form-label" for="password">Please enter your Password</label>
                                             </div>
-                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" name="recover">Reset Password</button>
+                                            <div class="form-outline form-white mb-4">
+                                                <input class="form-control form-control-lg" type="password" id="passwordCheck" name="passwordCheck" minlength="8" maxlength="255"/>
+                                                <label class="form-label" for="passwordCheck">Please repeat your Password</label>
+                                            </div>
+                                            <button class="btn btn-outline-light btn-lg px-5" type="submit" name="recover">Continue</button>
                                             <div class="d-flex justify-content-between mt-4">
                                                 <a class="text-white-50 fw-bold" href="login">Login</a>
                                                 <a class="text-white-50 fw-bold" href="register">Register</a>
