@@ -1,6 +1,5 @@
 <?php
 
-
 require("models/users.php");
 
 $modelUsers = new Users();
@@ -14,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $subject = "Password Reset";
     $message = "Click the following link to reset your password: 
-                localhost/recoverypage.php?email=$email&token=$token";
+                http://localhost/recoveryverify/?email=$email&token=$token";
     require("Core/phpmailer.php");
     sendEmail($subject, $message);
 }

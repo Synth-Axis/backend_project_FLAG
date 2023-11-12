@@ -21,7 +21,7 @@ class Users extends Base{
 		
 		$query = $this->db->prepare("
 			SELECT 
-                user_id , username, email , password, user_type
+                user_id , username, email , password, user_type, password_token
 			FROM 
 				users
             WHERE
@@ -115,6 +115,23 @@ class Users extends Base{
         $query->execute( 
             [
                 $userEmail,
+                $id
+            ]
+        );
+    }
+
+    public function updatePassword($password, $id) {
+		
+		$query = $this->db->prepare("
+			UPDATE users
+			SET 
+                password = ?
+            WHERE
+                user_id = ?
+		");
+        $query->execute( 
+            [
+                $password,
                 $id
             ]
         );

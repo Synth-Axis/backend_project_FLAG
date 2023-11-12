@@ -15,14 +15,14 @@ $mail = new PHPMailer(true);
         $mail->SMTPDebug = 2;
 
         $mail->isSMTP();
-        $mail->Host = "smtp-mail.outlook.com";
+        $mail->Host = "smtp-relay.brevo.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "synthphp@outlook.pt";
-        $mail->Password = "pizza123";
+        $mail->Username = "synthphp@gmail.com";
+        $mail->Password = "kcgWTKN2MYAz1Ur9";
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
 
-        $mail->setFrom("synthphp@outlook.pt", "Games Inc");
+        $mail->setFrom("synthphp@gmail.com", "Games Inc");
         $mail->addAddress("synthphp@gmail.com", "Synthaxis");
 
         $mail->isHTML(true);

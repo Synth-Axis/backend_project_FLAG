@@ -39,6 +39,7 @@ if (isset($_POST["send"])){
                 header("Location: login");
             }
             $message = "Email already exists";
+            $username = retainFormData($_POST["username"]);
         }
         else if($_POST["password"] !== $_POST["passwordCheck"]){
             $message = "Passwords do not match";
@@ -53,6 +54,8 @@ if (isset($_POST["send"])){
     } 
     else {
         $message = "CAPTCHA verification failed!";
+        $username = retainFormData($_POST["username"]);
+        $email = retainFormData($_POST["email"]);
     }
 }
 
