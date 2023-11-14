@@ -11,7 +11,7 @@
                                 <div class="card-body p-5 text-center">
                                     <div class="mb-md-5 mt-md-4 pb-5">
                                         <h2 class="fw-bold mb-2 text-uppercase mb-5">Set New Password</h2>
-                                        <form method="POST" action="recoverypage">
+                                        <form method="POST" action="/recoverypage">
                                         <div class="form-outline form-white mb-4">
                                                 <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
                                                 <label class="form-label" for="password">Please enter your Password</label>

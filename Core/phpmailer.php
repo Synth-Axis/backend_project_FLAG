@@ -17,8 +17,8 @@ $mail = new PHPMailer(true);
         $mail->isSMTP();
         $mail->Host = "smtp-relay.brevo.com";
         $mail->SMTPAuth = true;
-        $mail->Username = "synthphp@gmail.com";
-        $mail->Password = "kcgWTKN2MYAz1Ur9";
+        $mail->Username = ENV["PHPMAILER_USERNAME"];
+        $mail->Password = ENV["PHPMAILER_PASSWORD"];
         $mail->SMTPSecure = "tls";
         $mail->Port = 587;
 

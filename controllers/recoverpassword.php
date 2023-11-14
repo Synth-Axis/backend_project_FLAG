@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $subject = "Password Reset";
     $message = "Click the following link to reset your password: 
-                http://localhost/recoveryverify/?email=$email&token=$token";
+        ".ENV["ADDRESS"]."/recoverypage/?email=$email&token=$token";
     require("Core/phpmailer.php");
     sendEmail($subject, $message);
 }
