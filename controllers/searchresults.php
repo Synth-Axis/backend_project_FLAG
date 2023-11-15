@@ -6,7 +6,7 @@ require("Core/basefunctions.php");
 $message = "";
 
 if (isset($_POST["search"])) {
-    $searchString = "%".$_POST["search"]."%";
+    $searchString = htmlspecialchars(strip_tags(trim("%".$_POST["search"]."%")));
     $games = $modelGames->searchGames($searchString);   
     }
 
