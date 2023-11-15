@@ -1,11 +1,19 @@
 <?php
 
 require("Core/basefunctions.php");
+require("Core/CSRF.php");
 
 $message = "";
 $email = "";
 
+if (!isset($_SESSION["csrf_token"])) {
+    generateCSRFToken();
+}
+
 if( isset($_POST["send"])){
+    if (!isset($_POST["csrf_token"]) || $_POST["csrf_token"] !== $_SESSION["csrf_token"]) {
+        die("CSRF token validation failed.");
+    }
 
     foreach($_POST as $key => $value){
         $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
@@ -48,6 +56,7 @@ if( isset($_POST["send"])){
         $message = "Please fill the form correctly!";
         $email = retainFormData($_POST["email"]);
     }
+    generateCSRFToken();
 }
 
 function retainFormData($formData) {

@@ -2,6 +2,7 @@
 
 require("models/users.php");
 require("Core/basefunctions.php");
+require("Core/CSRF.php");
 
 $message = "";
 $code = "";
@@ -10,14 +11,20 @@ $username = "";
 
 $modelUsers = new Users();
 
+if (!isset($_SESSION["csrf_token"])) {
+    generateCSRFToken();
+}
+
 if (isset($_POST["send"])){
+    if (!isset($_POST["csrf_token"]) || $_POST["csrf_token"] !== $_SESSION["csrf_token"]) {
+        die("CSRF token validation failed.");
+    }
 
     foreach($_POST as $key => $value){
         $_POST[ $key ] = htmlspecialchars(strip_tags(trim($value)));
     }
 
     if($_POST["captchaText"] === $_SESSION["captchaText"]) {
-        echo "CAPTCHA verification successful!";
 
         if (
             !empty($_POST["username"]) &&
@@ -57,6 +64,7 @@ if (isset($_POST["send"])){
         $username = retainFormData($_POST["username"]);
         $email = retainFormData($_POST["email"]);
     }
+    generateCSRFToken();
 }
 
 function retainFormData($formData) {

@@ -9,7 +9,7 @@ if (isset($_SESSION["user_id"])){
 
     if($loggedUser["user_type"] !== "admin"){
         http_response_code(403);
-        die("Forbidden");
+        header("Location: 403");
     }
     else{
         $users = $modelUsers->getAllUsers();
@@ -17,7 +17,7 @@ if (isset($_SESSION["user_id"])){
 }
 else{
     http_response_code(403);
-    die("Forbidden");
+    header("Location: 403");
 }
 
 require("views/admin.php");

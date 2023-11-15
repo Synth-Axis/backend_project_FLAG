@@ -6,14 +6,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-function sendEmail($subject, $message){
+function sendEmail($subject, $message, $user_email, $user_name){
 
-$mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
 
     try {
-
-        $mail->SMTPDebug = 2;
-
         $mail->isSMTP();
         $mail->Host = "smtp-relay.brevo.com";
         $mail->SMTPAuth = true;
@@ -23,7 +20,7 @@ $mail = new PHPMailer(true);
         $mail->Port = 587;
 
         $mail->setFrom("synthphp@gmail.com", "Games Inc");
-        $mail->addAddress("synthphp@gmail.com", "Synthaxis");
+        $mail->addAddress($user_email, $user_name);
 
         $mail->isHTML(true);
 
@@ -31,7 +28,6 @@ $mail = new PHPMailer(true);
         $mail->Body = $message;
 
         $mail->send();
-        echo 'Email sent successfully';
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }

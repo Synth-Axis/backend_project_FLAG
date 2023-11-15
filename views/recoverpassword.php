@@ -14,6 +14,7 @@
                                         <p class="text-white-50 mb-5">Enter your email address and we'll send you an email with instructions to reset your password.</p>
                                         <form method="POST" action="recoverpassword">
                                             <div class="form-outline form-white mb-4">
+                                                <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                                                 <input class="form-control form-control-lg" type="email" id="user_email" name ="user_email" />
                                                 <label class="form-label" for="user_email">Enter your email</label>
                                             </div>
@@ -22,6 +23,7 @@
                                                 <a class="text-white-50 fw-bold" href="login">Login</a>
                                                 <a class="text-white-50 fw-bold" href="register">Register</a>
                                             </div>
+                                            <?= showMessage($message) ?>
                                         </form>    
                                     </div>
                                 </div>

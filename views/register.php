@@ -41,6 +41,7 @@
                                                 <input class="form-control form-control-lg mt-3" type="text" id="captchaText" name="captchaText" minlength="6" maxlength="6"/>
                                                 <label class="form-label" for="captchaText">Enter the Captcha code displayed above</label>
                                             </div>
+                                            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                                             <button class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" type="submit" name="send">Register</button>
                                         </form>
                                     <div>

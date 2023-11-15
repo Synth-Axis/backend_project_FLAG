@@ -22,6 +22,7 @@
                                                 <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
                                                 <label class="form-label" for="password">Password</label>
                                             </div>
+                                            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                                             <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverpassword">Forgot password?</a></p>
                                             <button class="btn btn-outline-light btn-lg px-5" type="submit" name="send">Login</button>
                                         </form>
