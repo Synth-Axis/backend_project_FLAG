@@ -7,7 +7,8 @@ $message = "";
 
 if ( empty($id) || !is_numeric($id)){
     http_response_code(400);
-    die("Request inválido");
+    require("views/errors/400.php");
+    exit;
 }
 
 $platformsIds = $modelPlatforms->getPlatforms();

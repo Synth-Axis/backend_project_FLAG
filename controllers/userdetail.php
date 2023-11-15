@@ -9,12 +9,14 @@ $user = $modelUsers->findUserById($id);
 
 if ( empty($id) || !is_numeric($id)){
     http_response_code(400);
-    die("Request inválido");
+    require("views/errors/400.php");
+    exit;
 }
 
 if( empty($user)){
     http_response_code(404);
-    die("Não encontrado");
+    require("views/errors/404.php");
+    exit;
 }
 
 if ( isset($_POST["sendUser"])){

@@ -9,7 +9,8 @@ $games = $modelGames->getAllGames();
 
 if( empty($games)){
     http_response_code(404);
-    die("Not found");
+    require("views/errors/404.php");
+    exit;
 }
 
 foreach ( $games as $key => $game ) {

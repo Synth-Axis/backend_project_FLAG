@@ -14,7 +14,8 @@ if ( empty($id) || !is_numeric($id)){
 $game = $modelGames->getGameDetail($id);
 if( empty($game)){
     http_response_code(404);
-    header("Location: /views/erros/404.php");
+    require("views/errors/404.php");
+    exit;
 }
 
 $games = $modelGames->getAllGames();

@@ -9,7 +9,8 @@ $modelUsers = new Users();
 
 if (!isset($_SESSION["user_id"])){
     http_response_code(403);
-    die("Forbidden");
+    require("views/errors/403.php");
+    exit;
 }
 else{
     $currentUser = $modelUsers->findUserById($_SESSION["user_id"]);

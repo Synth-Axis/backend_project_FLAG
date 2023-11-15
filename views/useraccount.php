@@ -54,9 +54,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row gutters">
-                                        <p class="text-center">HERE WILL GO THE USERS GAMES AND WISHLIST</p>
-                                    </div>
                                                             
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
