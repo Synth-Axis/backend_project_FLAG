@@ -164,6 +164,18 @@ class Games extends Base{
 		return $query->fetchAll();
     }
 
+	public function deleteGame($gameId){
+
+        $query = $this->db->prepare("
+			DELETE FROM games  
+			WHERE game_id = ?
+        ");
+
+        $query->execute([$gameId]);
+    }
+
+
+
 
 
 }

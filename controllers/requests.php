@@ -5,9 +5,9 @@ header("Content-Type: application/json");
 require("Core/basefunctions.php");
 require("models/owned_games.php");
 require("models/users.php");
+require("models/games.php");
 
 if ( $_POST["request"] === "removeGameFromOwned" ){
-    
     $modelOwnedGames = new OwnedGames();
     $modelOwnedGames->removeGameFromOwned($_SESSION["user_id"], $_POST["game_id"]);
     echo '{"message" : "OK"}';
@@ -37,4 +37,16 @@ if ($_POST["request"] === "updateUserPhoto") {
         $modelUsers->updateUserPhoto($_POST["avatar"], $_SESSION["user_id"]);
         echo '{"message" : "OK"}';
     }
+}
+
+if ( $_POST["request"] === "deleteGame" ){
+    $modelGames = new Games();
+    // $modelGames->deleteGame($_POST["game_id"]);
+    echo '{"message" : "OK"}';
+}
+
+if ( $_POST["request"] === "addGame" ){
+    $modelGames = new Games();
+    // $modelGames->addGame($_POST["game_name"], $_POST["released_on"], $_POST["game_photo"]);
+    echo '{"message" : "OK"}';
 }
