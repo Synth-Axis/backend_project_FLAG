@@ -54,8 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (window.location.href.includes("admin_db_games")) {
+    if (window.location.href.includes("admingames")) {
         const removeButtons = document.querySelectorAll('#deleteGame');
+        const addButton = document.querySelector("#insertGame");
 
         for (let removeButton of removeButtons) {
             const game = removeButton.nextElementSibling.value;
@@ -78,6 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         }
+
+        addButton.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            fetch("/requests/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "request=addGame&game_id=" + 1,
+            })
+                .then(response => response.json()).then(result => {
+                    if (result.message === "OK") {
+                        alert("Game Inserted");
+                    }
+                });
+        });
     }
 });
 

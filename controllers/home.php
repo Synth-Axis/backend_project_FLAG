@@ -7,6 +7,7 @@ $message = "";
 
 $games = $modelGames->getAllGames();
 
+
 if( empty($games)){
     http_response_code(404);
     require("views/errors/404.php");
@@ -18,5 +19,9 @@ foreach ( $games as $key => $game ) {
 }
 
 $platformsAsideMenu = $modelPlatforms->getPlatforms();
+
+if(isset($_SESSION["user_id"])){
+    $users = $modelUsers->findUserById($_SESSION["user_id"]);
+}
 
 require("views/home.php");

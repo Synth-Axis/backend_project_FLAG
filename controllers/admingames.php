@@ -9,4 +9,4 @@ $games = $modelGames->getAllGames();
 $modelPlatforms = new Platforms();
 $platforms = $modelPlatforms->getPlatforms();
 
-require("views/admin_db_games.php");
+require("views/admingames.php");

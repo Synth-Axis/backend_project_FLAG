@@ -9,7 +9,7 @@
     <div class="form-outline form-white">
         <form method="post" action="/searchresults">
         <div class="d-flex form-inputs">
-            <input class="w-100 form-control form-control-lg" type="text" name="search" placeholder="Type in your search...">
+            <input class="w-100 form-control form-control-lg" type="text" name="search" placeholder="Search for a game...">
             <button class="btn btn-outline-light btn-lg px-3 mx-2" type="submit">Search</button>
         </div>
         </form>
@@ -20,17 +20,15 @@
         <?php
             if( isset($_SESSION["user_id"]) ){         
         ?>
-                <a href="/logout" class="mx-1">Logout</a>
-                <a href="/useraccount" class="mx-1">Account</a>
-                <a href="/admin" class="mx-1">Admin</a>
-                <a href="/contact" class="mx-1">Contact</a>
+                <a class="text-decoration-none text-light mx-2" href="/logout">Logout</a>
+                <a class="text-decoration-none text-light mx-2" href="/useraccount">Account</a>
+                <a class="text-decoration-none text-light mx-2" href="/admin">Admin</a>
             <?php
             }
             else{
         ?>
-            <a href="/login" class="mx-1">Login</a>
-            <a href="/register" class="mx-1">Register</a>
-            <a href="/contact" class="mx-1">Contact</a>
+            <a class="text-decoration-none text-light mx-2" href="/login" class="mx-1">Login</a>
+            <a class="text-decoration-none text-light mx-2" href="/register" class="mx-1">Register</a>
         <?php
             }
         ?>

@@ -58,7 +58,7 @@
                                     <div class="row gutters">
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                             <div class="text-right">
-                                                <a class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" href="/">Cancel</a>
+                                                <a class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" href="/">Back</a>
                                                 <button type="submit" id="submit" name="send" class="btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-3" >Update</button>
                                             </div>
                                         </div>

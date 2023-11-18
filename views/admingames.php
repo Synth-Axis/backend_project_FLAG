@@ -1,10 +1,5 @@
-<?php require('views/partials/head.php') ?>
+<?php require("views/partials/adminheader.php") ?>
 
-<body class="text-light bg-dark">
-    <main>
-        <div class="container text-center">
-            <section class="vh-100 gradient-custom">
-                <div class="container py-5 h-100">
                     <div class="row d-flex justify-content-center align-items-center h-100">
                         <div class="col">
                             <div class="bg-dark text-white">
@@ -25,7 +20,7 @@
                                                 <td><?= $game["game_photo"] ?></td>
                                                 <td>
                                                     <form>    
-                                                        <button data-game_id="<?= $game["game_id"] ?>" type="button" id="deleteGame" name="deleteGame" aria-label="deleteGame">X</button>
+                                                        <button class="btn btn-outline-light btn-sm" data-game_id="<?= $game["game_id"] ?>" type="button" id="deleteGame" name="deleteGame" aria-label="deleteGame">X</button>
                                                         <input type="hidden" value="<?= $game['game_id']?>" name="game_id"/>
                                                     </form>
                                                 </td>
@@ -35,8 +30,8 @@
                                     </tbody>
                                 </table>
 
-                                <p class="h5">Insert a Game</p>
-                                <form method="POST" action="admin_db_games">
+                                <p class="h5 mt-5">Insert a Game</p>
+                                <form method="POST" action="admingames">
                                     <div class="form-outline form-white mb-4">
                                         <input class="form-control form-control-lg" type="text" id="game_name" name="game_name" placeholder="Type a game name">
                                     </div>
@@ -46,6 +41,9 @@
                                     <div class="form-outline form-white mb-4">
                                         <input class="form-control form-control-lg" type="text" id="game_photo" name="game_photo" placeholder="Type the link to the photo">
                                     </div>
+                                    <div class="form-outline form-white mb-4">
+                                        <button class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" type="submit" id="insertGame" name="send">Insert Game</button>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -53,5 +51,5 @@
                 </div>
             </section>
         </div>
-    </main>
+
 <?php require('views/partials/footer.php') ?>
