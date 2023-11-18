@@ -19,8 +19,8 @@
                                                 <td><?= $game["released_on"] ?></td>
                                                 <td><?= $game["game_photo"] ?></td>
                                                 <td>
-                                                    <form>    
-                                                        <button class="btn btn-outline-light btn-sm" data-game_id="<?= $game["game_id"] ?>" type="button" id="deleteGame" name="deleteGame" aria-label="deleteGame">X</button>
+                                                    <form method="POST">    
+                                                        <button class="btn btn-outline-light btn-sm" data-game_id="<?= $game["game_id"] ?>" type="submit" id="deleteGame" name="deleteGame" aria-label="deleteGame">X</button>
                                                         <input type="hidden" value="<?= $game['game_id']?>" name="game_id"/>
                                                     </form>
                                                 </td>

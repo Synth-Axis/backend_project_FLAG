@@ -85,7 +85,7 @@ class Games extends Base{
 		return $query->fetchAll();
 	}
 
-	public function findGamesByGenre($genre){
+	public function findGamesByGenre($genreId){
 		$query = $this->db->prepare("
 			SELECT
 				g.game_id, g.game_name, g.released_on, g.game_photo, gr.game_id, gr.genre_id, gen.genre_name
@@ -99,7 +99,7 @@ class Games extends Base{
 				gen.genre_id = ?
 		");
 
-		$query->execute( [$genre] );
+		$query->execute( [$genreId] );
 		
 		return $query->fetchAll();
 	}

@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let removeButton of removeButtons) {
             const game = removeButton.nextElementSibling.value;
 
-            removeButton.addEventListener("click", () => {
+            removeButton.addEventListener("click", (event) => {
 
                 gameLine = removeButton.parentNode.parentNode.parentNode;
 
@@ -71,7 +71,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     },
                     body: "request=deleteGame&game_id=" + game
                 })
-                .then(response => response.json()).then(result => {
+                    .then(response => response.json()).then(result => {
+                        
                     if (result.message === "OK") {
                         gameLine.remove();
                     }

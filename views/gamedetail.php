@@ -42,7 +42,7 @@
                             <div class="col-lg-12 mt-3">
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <a href="/" class="btn btn-secondary w-100">Back</a>
+                                        <a href="/" class="btn btn-secondary w-75">Back</a>
                                     </div>
                                     <div id="buttons" class="col-lg-6 pb-2">
                                         <button data-game_id="<?= $game["game_id"] ?>" type="button" class="btn btn-success" id="addGame">Add to your Games</button>

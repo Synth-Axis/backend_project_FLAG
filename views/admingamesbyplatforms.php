@@ -29,7 +29,7 @@
                                     </tbody>
                                 </table>
 
-                                <p class="h5 mt-5">Insert a Game and a Platform</p>
+                                <p class="h5 mt-5">Insert a Game and a Platformgit</p>
                                 <form method="POST" action="admingamesbyplatform">
                                     <div class="form-outline form-white mb-4">
                                         <input class="form-control form-control-lg" type="text" id="game_name" name="game_name" placeholder="Type a game name">
