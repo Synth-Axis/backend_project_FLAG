@@ -16,4 +16,7 @@
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/admingames">Games</a>
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/adminplatforms">Platforms</a>
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/admingenres">Genres</a>     
+                <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mx-5" href="/admingamesbygenres">Games by Genre</a>
+                <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mx-5" href="/admingamesbyplatforms">Games by Platform</a>
             </div>
+           

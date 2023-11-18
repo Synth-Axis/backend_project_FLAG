@@ -87,16 +87,16 @@ class Games extends Base{
 
 	public function findGamesByGenre($genre){
 		$query = $this->db->prepare("
-		SELECT
-			g.game_id, g.game_name, g.released_on, g.game_photo, gr.game_id, gr.genre_id
-		FROM
-			genres_games AS gr   
-		INNER JOIN
-			genres as gen ON(gen.genre_id = gr.genre_id)
-		INNER JOIN
-			games as g ON(g.game_id = gr.game_id)
-		WHERE
-			gen.genre_id = ?
+			SELECT
+				g.game_id, g.game_name, g.released_on, g.game_photo, gr.game_id, gr.genre_id, gen.genre_name
+			FROM
+				genres_games AS gr   
+			INNER JOIN
+				genres as gen ON(gen.genre_id = gr.genre_id)
+			INNER JOIN
+				games as g ON(g.game_id = gr.game_id)
+			WHERE
+				gen.genre_id = ?
 		");
 
 		$query->execute( [$genre] );
@@ -164,6 +164,22 @@ class Games extends Base{
 		return $query->fetchAll();
     }
 
+	public function findScreenshots($gameId){
+
+        $query = $this->db->prepare("
+			SELECT 
+				screenshot_image
+			FROM 
+				screenshots 
+			WHERE 
+				game_id = ?
+        ");
+
+        $query->execute([$gameId]);
+		
+		return $query->fetchAll();
+    }
+
 	public function deleteGame($gameId){
 
         $query = $this->db->prepare("
@@ -188,4 +204,42 @@ class Games extends Base{
 			$game_photo
 		]);
     }
+
+	public function findGamesAndGenres(){
+		$query = $this->db->prepare("
+			SELECT
+				g.game_id, g.game_name, gr.game_id, gr.genre_id, gen.genre_name
+			FROM
+				genres_games AS gr   
+			INNER JOIN
+				genres as gen ON(gen.genre_id = gr.genre_id)
+			INNER JOIN
+				games as g ON(g.game_id = gr.game_id)
+			ORDER BY
+				g.game_name
+		");
+
+		$query->execute();
+		
+		return $query->fetchAll();
+	}
+
+	public function findGamesAndPlatforms(){
+		$query = $this->db->prepare("
+			SELECT
+				g.game_id, g.game_name, pg.game_id, pg.platform_id, pl.platform_name
+			FROM
+				games_platforms AS pg   
+			INNER JOIN
+				platforms as pl ON(pl.platform_id = pg.platform_id)
+			INNER JOIN
+				games as g ON(g.game_id = pg.game_id)
+			ORDER BY
+				g.game_name
+		");
+
+		$query->execute();
+		
+		return $query->fetchAll();
+	}
 }
