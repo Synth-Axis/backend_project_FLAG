@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (window.location.href.includes("admingames")) {
         const removeButtons = document.querySelectorAll('#deleteGame');
-        const addButton = document.querySelector("#insertGame");
 
         for (let removeButton of removeButtons) {
             const game = removeButton.nextElementSibling.value;
@@ -79,23 +78,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         }
+    }
 
-        addButton.addEventListener("click", (event) => {
-            event.preventDefault();
+    if (window.location.href.includes("adminplatforms")) {
+        const removeButtons = document.querySelectorAll('#deletePlatform');
 
-            fetch("/requests/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: "request=addGame&game_id=" + 1,
-            })
+        for (let removeButton of removeButtons) {
+            const platform = removeButton.nextElementSibling.value;
+
+            removeButton.addEventListener("click", () => {
+
+                const platformLine = removeButton.parentNode.parentNode.parentNode;
+
+                fetch("/requests/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "request=deletePlatform&platform_id=" + platform
+                })
                 .then(response => response.json()).then(result => {
                     if (result.message === "OK") {
-                        alert("Game Inserted");
+                        platformLine.remove();
                     }
                 });
-        });
+            });
+        }
+    }
+
+    if (window.location.href.includes("admingenres")) {
+        const removeButtons = document.querySelectorAll('#deleteGenre');
+
+        for (let removeButton of removeButtons) {
+            const genre = removeButton.nextElementSibling.value;
+
+            removeButton.addEventListener("click", () => {
+
+                const genreLine = removeButton.parentNode.parentNode.parentNode;
+
+                fetch("/requests/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded"
+                    },
+                    body: "request=deleteGenre&genre_id=" + genre
+                })
+                .then(response => response.json()).then(result => {
+                    if (result.message === "OK") {
+                        genreLine.remove();
+                    }
+                });
+            });
+        }
     }
 });
 

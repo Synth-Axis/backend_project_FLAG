@@ -22,7 +22,7 @@
         ?>
                 <a class="text-decoration-none text-light mx-2" href="/logout">Logout</a>
                 <a class="text-decoration-none text-light mx-2" href="/useraccount">Account</a>
-                <a class="text-decoration-none text-light mx-2" href="/admin">Admin</a>
+                <a class="text-decoration-none text-light mx-2" href="/adminheader">Admin</a>
             <?php
             }
             else{

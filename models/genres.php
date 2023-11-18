@@ -17,4 +17,31 @@ class Genres extends Base{
 		
 		return $query->fetchAll();
 	}
+
+	public function deleteGenre($genreId){
+		$query = $this->db->prepare("
+			DELETE FROM genres  
+			WHERE genre_id = ?
+        ");
+
+        $query->execute([
+			$genreId
+		]);
+		
+		return $query->fetchAll();
+	}
+
+	public function insertGenre($genreName){
+		$query = $this->db->prepare("
+			INSERT INTO genres  
+			(genre_name)
+			VALUES(?)
+        ");
+
+        $query->execute([
+			$genreName
+		]);
+		
+		return $query->fetchAll();
+	}
 }

@@ -174,8 +174,18 @@ class Games extends Base{
         $query->execute([$gameId]);
     }
 
+	public function addGame($game_name, $released_on, $game_photo){
 
+        $query = $this->db->prepare("
+			INSERT INTO games  
+			(game_name, released_on, game_photo)
+			VALUES(?, ?, ?)
+        ");
 
-
-
+        $query->execute([
+			$game_name,
+			$released_on,
+			$game_photo
+		]);
+    }
 }

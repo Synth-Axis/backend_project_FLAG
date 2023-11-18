@@ -37,7 +37,7 @@ if( isset($_POST["send"])){
                 $_SESSION["user_id"] = $currentUser["user_id"];
 
                 if( $currentUser["user_type"] === "admin"){
-                    header("Location: /admin");
+                    header("Location: /adminheader");
                 }
                 else {
                     header("Location: /");

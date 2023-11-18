@@ -6,6 +6,8 @@ require("Core/basefunctions.php");
 require("models/owned_games.php");
 require("models/users.php");
 require("models/games.php");
+require("models/platforms.php");
+require("models/genres.php");
 
 if ( $_POST["request"] === "removeGameFromOwned" ){
     $modelOwnedGames = new OwnedGames();
@@ -41,12 +43,18 @@ if ($_POST["request"] === "updateUserPhoto") {
 
 if ( $_POST["request"] === "deleteGame" ){
     $modelGames = new Games();
-    // $modelGames->deleteGame($_POST["game_id"]);
+    // $modelGames->deleteGame($_POST["game_id"]); ==> Uncomment this line to test 
     echo '{"message" : "OK"}';
 }
 
-if ( $_POST["request"] === "addGame" ){
-    $modelGames = new Games();
-    // $modelGames->addGame($_POST["game_name"], $_POST["released_on"], $_POST["game_photo"]);
+if ( $_POST["request"] === "deletePlatform" ){
+    $modelPlatforms = new Platforms();
+    // $modelPlatforms->deletePlatform($_POST["platform_id"]); ==> Uncomment this line to test
+    echo '{"message" : "OK"}';
+}
+
+if ( $_POST["request"] === "deleteGenre" ){
+    $modelGenres = new Genres();
+    // $modelGenres->deleteGenre($_POST["genre_id"]); ==> Uncomment this line to test
     echo '{"message" : "OK"}';
 }

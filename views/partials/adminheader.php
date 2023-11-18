@@ -11,6 +11,7 @@
         <h1 class="mt-5">Administration Page</h1>
         <div class="row mt-5 d-flex align-items-center">
             <div class="col">
+                <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/">Home</a>
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/adminusers">Users</a>
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/admingames">Games</a>
                 <a class="text-decoration-none btn btn-outline-light btn-lg px-5 mb-5 mt-4 mx-5" href="/adminplatforms">Platforms</a>
