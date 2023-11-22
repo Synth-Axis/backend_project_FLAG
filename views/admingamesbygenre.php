@@ -20,7 +20,7 @@
                                                     <form>    
                                                         <button class="btn btn-outline-light btn-sm" type="button" id="deleteGameGenre" name="deleteGameGenre" aria-label="deleteGameGenre">X</button>
                                                         <input type="hidden" value="<?= $game["genre_id"]?>" name="genre_id"/>
-                                                        <input type="hidden" value="<?= $game["game_id_id"]?>" name="game_id"/>
+                                                        <input type="hidden" value="<?= $game["game_id"]?>" name="game_id"/>
                                                     </form>
                                                 </td>
                                                     
@@ -32,7 +32,7 @@
                                 <p class="h5 mt-5">Insert a Game and a Genre</p>
                                 <form method="POST" action="admingamesbygenre">
                                     <div class="form-outline form-white mb-4">
-                                        <input class="form-control form-control-lg" type="text" id="game_name" name="game_name" placeholder="Type a game name">
+                                        <input class="form-control form-control-lg mb-4" type="text" id="game_name" name="game_name" placeholder="Type a game name">
                                         <input class="form-control form-control-lg" type="text" id="genre_name" name="genre_name" placeholder="Type a genre name">
                                     </div>
                                     <div class="form-outline form-white mb-4">

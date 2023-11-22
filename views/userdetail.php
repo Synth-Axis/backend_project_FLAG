@@ -13,7 +13,7 @@
                         <div class="card-body">
                             <div>
                                 <label for="username">Username</label>
-                                <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="<?= $user["username"] ?>" />
+                                <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="<?= $user["username"] ?>" value="<?= $user["username"] ?>"/>
                                 <div class="mt-2">    
                                     <button class="btn btn-outline-light btn-lg px-3 mx-2" type="submit" name="sendUser">Change</button>
                                 </div>
@@ -25,7 +25,7 @@
                         <div class="card-body">
                             <div>
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="<?= $user["email"] ?>" />
+                                <input type="text" class="form-control form-control-lg" id="email" name="email"  placeholder="<?= $user["email"] ?>" value="<?= $user["email"] ?>" />
                                 <div class="mt-2">    
                                     <button class="btn btn-outline-light btn-lg px-3 mx-2" type="submit" name="sendEmail">Change</button>
                                 </div>
@@ -38,7 +38,9 @@
                                 <div class="mt-2">    
                                     <input type="hidden" name="user_id" value=<?= $user["user_id"] ?>>
                                     <button class="btn btn-outline-light btn-lg px-3 mx-2" type="submit" name="deleteAccount">Delete Account</button>
+                                    
                                 </div>
+                                
                             </div>
                         </div>
                     </form>

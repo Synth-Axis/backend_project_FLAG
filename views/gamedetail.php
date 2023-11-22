@@ -33,7 +33,7 @@
                             <div class="col-lg-12 mt-2">
                             
                             <p class="tag-section">Platforms:
-                            <?php foreach($gameData["platforms"] as $platform) : ?>
+                            <?php foreach($gameData[$id]["platforms"] as $platform) : ?>
                                 <a class="mx-1" href="/platformgames/<?= $platform["platform_id"] ?>"><?= $platform["platformName"] ?></a>
                             <?php endforeach ?>
                             </p>

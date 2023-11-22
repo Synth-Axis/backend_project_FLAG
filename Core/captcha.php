@@ -13,7 +13,7 @@ $text = bin2hex(random_bytes(3));
 
 $_SESSION["captchaText"] = $text;
 
-imagettftext($backgroundImage, 60, 0, 110, 90, $textColor, $font, $text);
+imagettftext($backgroundImage, 60, 0, 105, 70, $textColor, $font, $text);
 
 imagepng($backgroundImage);
 
