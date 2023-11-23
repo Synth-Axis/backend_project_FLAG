@@ -13,7 +13,6 @@ $platforms = json_decode($platforms_data, true);
 
 class Api extends Base{
 
-    //For each game inserts in games table
     public function getGames($games){
         
         foreach( $games["results"] as $game) {
@@ -34,7 +33,6 @@ class Api extends Base{
         }
     }
 
-    // For each game AND for each screenshot insert into screenshots table
     public function getScreenshots($games){
 
         foreach( $games["results"] as $game) {
@@ -56,8 +54,6 @@ class Api extends Base{
         }
     }
 
-
-    //For each genre inserts in genres table
     public function getGenres($genres){
         
         foreach( $genres["results"] as $genre) {
@@ -76,7 +72,6 @@ class Api extends Base{
         }
     }
 
-    //For each game AND for each rating inserts in rated_games
     public function getRatings($games){
 
         foreach( $games["results"] as $game) {
@@ -98,7 +93,6 @@ class Api extends Base{
         }
     }
 
-    //For each platform inserts into platforms table
     public function getPlatforms($platforms){
 
         foreach( $platforms["results"] as $platform) {
@@ -118,7 +112,6 @@ class Api extends Base{
         }
     }
 
-    //For each game AND each platform inserts into games_platforms table
     public function getGamesByPlatforms($platforms){
 
         foreach( $platforms["results"] as $platform) {

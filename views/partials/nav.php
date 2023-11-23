@@ -1,5 +1,3 @@
- <!-- NAV BAR -->
-
 <div class="col-2">
     <a href="/">
         <img class="img-fluid" src="/assets/Misc/warrior_icon.png" alt="" style="width: 96px">

@@ -17,7 +17,7 @@
                             <img src="/assets/Misc/404_murloc.jpg" alt="404 Error">
                         </div>
                         <div>
-                            <a class="btn btn-outline-light btn-lg px-5" href="/">Back</a>
+                            <a class="btn btn-outline-light btn-lg px-5 mt-5" href="/">Back</a>
                         </div>
                     </div>
                 </div>

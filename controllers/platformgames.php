@@ -11,8 +11,6 @@ if ( empty($id) || !is_numeric($id)){
     exit;
 }
 
-$platformsIds = $modelPlatforms->getPlatforms();
-
 foreach ( $platforms as $key => $platform ) {
     $platforms[$id]["games"] = $modelGames->findGamesByPlatform($id);
 }

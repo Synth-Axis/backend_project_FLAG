@@ -12,8 +12,3 @@ function showMessage ($message){
         echo '<p role="alert" class="text-warning">' .$message. '</p>';
         } 
 }
-
-function goback()
-{
-	header("Location: {$_SERVER['HTTP_REFERER']}");
-}

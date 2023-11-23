@@ -8,7 +8,8 @@ $modelRatings = new Ratings();
 
 if ( empty($id) || !is_numeric($id)){
     http_response_code(400);
-    die("Request inválido");
+    require("views/errors/400.php");
+    exit;
 }
 
 $game = $modelGames->getGameDetail($id);
@@ -19,10 +20,6 @@ if( empty($game)){
 }
 
 $games = $modelGames->getAllGames();
-
-// foreach ( $games as $key => $gameData ) {
-//     $gameData["platforms"] = $modelPlatforms->findPlatformsByGame($gameData["game_id"]);
-// }
 
 foreach ( $platforms as $key => $platform ) {
     $gameData[$id]["platforms"] = $modelPlatforms->findPlatformsByGame($id);

@@ -18,6 +18,22 @@ class Platforms extends Base{
 		return $query->fetchAll();
 	}
 
+	public function getPlatformById($platformId) {
+		
+		$query = $this->db->prepare("
+			SELECT 
+				platform_id, platform_name
+			FROM 
+				platforms
+			WHERE 
+				platform_id = ?
+		");
+		
+		$query->execute([ $platformId ]);
+		
+		return $query->fetch();
+	}
+
 	public function findPlatformsByGame($gameId){
 		$query = $this->db->prepare("
 			SELECT 

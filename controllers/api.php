@@ -14,6 +14,6 @@ $model = new Api();
 
 // $model->getScreenshots($games);
 
-$model->getPlatforms($platforms);
+// $model->getPlatforms($platforms);
 
 // $model->getGamesByPlatforms($platforms);
