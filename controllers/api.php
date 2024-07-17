@@ -8,12 +8,12 @@ $model = new Api();
 
 // $model->getGenres($genres);
 
-$model->getGamesByGenre($genres);
+// $model->getGamesByGenre($genres);
 
 // $model->getRatings($games);
 
 // $model->getScreenshots($games);
 
-// $model->getPlatforms($platforms);
+$model->getPlatforms($platforms);
 
 // $model->getGamesByPlatforms($platforms);

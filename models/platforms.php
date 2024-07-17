@@ -36,4 +36,31 @@ class Platforms extends Base{
 		
 		return $query->fetchAll();
 	}
+
+	public function deletePlatform($platformId){
+		$query = $this->db->prepare("
+			DELETE FROM platforms  
+			WHERE platform_id = ?
+        ");
+
+        $query->execute([
+			$platformId
+		]);
+		
+		return $query->fetchAll();
+	}
+
+	public function insertPlatform($platformName){
+		$query = $this->db->prepare("
+			INSERT INTO platforms  
+			(platform_name)
+			VALUES(?)
+        ");
+
+        $query->execute([
+			$platformName
+		]);
+		
+		return $query->fetchAll();
+	}
 }

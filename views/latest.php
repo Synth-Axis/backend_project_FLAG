@@ -2,7 +2,7 @@
 
 <body class="text-light bg-dark">
     <div class="container text-center">
-        <div class="row mt-3">
+        <div class="row mt-3 d-flex align-items-center">
             <?php require('views/partials/nav.php') ?>
         </div>
         
@@ -12,21 +12,10 @@
             </div>
             
             <div class="col-9">
+                <p><?= showMessage($message) ?></p>
                 <div class="row d-flex justify-content-center">
                 <?php foreach ($games as $game) : ?>
-                    <div class="card mx-2 my-2 bg-dark bg-gradient text-white" style="width: 19rem">
-                        <img src=<?= $game['game_photo'] ?> class="card-img-top" alt="game cover">
-                        <div class="card-body">
-                            <h5 class="card-title"><?= $game['game_name'] ?></h5>           
-                            <p class="card-text">
-                            <?php foreach($game["platforms"] as $platform) : ?>
-                               <?= $platform["platformName"] ?>
-                            <?php endforeach ?>
-                            </p>
-                            <input type="button" class="btn btn-primary" value="Add to your Games">
-                            <a href="/gamedetail/<?= $game['game_id'] ?>" class="btn btn-primary">More</a>
-                        </div>
-                    </div>
+                    <?php require("views/partials/gamecards.php") ?>
                 <?php endforeach; ?>
                 </div>
             </div>

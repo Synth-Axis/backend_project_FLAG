@@ -5,3 +5,7 @@
 *.txt
 
 favicon.ico
+
+assets/
+
+vendor/

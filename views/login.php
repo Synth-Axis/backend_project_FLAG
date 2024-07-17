@@ -12,20 +12,22 @@
                                     <div class="mb-md-5 mt-md-4 pb-5">
                                         <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
                                         <p class="text-white-50 mb-5">Please enter your login and password!</p>
-                                        <form method="POST" action="login.php">
+                                        <p class="text-warning"><?= showMessage($message) ?></p>
+                                        <form method="POST" action="login">
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="email" id="email" name="email" required />
+                                                <input class="form-control form-control-lg" type="email" id="email" name="email" value="<?= $email ?>"/>
                                                 <label class="form-label" for="email">Email</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="password" id="password" name="password" required minlength="8" maxlength="255"/>
+                                                <input class="form-control form-control-lg" type="password" id="password" name="password" minlength="8" maxlength="255"/>
                                                 <label class="form-label" for="password">Password</label>
                                             </div>
+                                            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                                             <p class="small mb-3 pb-lg-2"><a class="text-white-50" href="recoverpassword">Forgot password?</a></p>
                                             <button class="btn btn-outline-light btn-lg px-5" type="submit" name="send">Login</button>
                                         </form>
                                     </div>
-                                    <p class="mb-0">Don't have an account? <a href="register" class="text-white-50 fw-bold">Sign Up</a>
+                                    <p class="mb-0">Don't have an account? <a href="register" class="text-white-50 fw-bold">Register Here</a>
                                     </p>
                                 </div>
                             </div>
@@ -35,5 +37,5 @@
             </section>
         </div>
     </main> 
-
-    <?php require('views/partials/footer.php') ?>
+    
+<?php require('views/partials/footer.php') ?>

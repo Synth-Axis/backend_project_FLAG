@@ -15,11 +15,11 @@
                                         <?= showMessage($message) ?>
                                         <form method="POST" action="register">
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="text" id="username" name="username" minlength="3" maxlength="20"/>
+                                                <input class="form-control form-control-lg" type="text" id="username" name="username" value="<?= $username ?>" minlength="3" maxlength="20"/>
                                                 <label class="form-label" for="username">Please enter your Username</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">
-                                                <input class="form-control form-control-lg" type="email" id="email" name="email"/>
+                                                <input class="form-control form-control-lg" type="email" id="email" name="email" value="<?= $email ?>" />
                                                 <label class="form-label" for="email">Please enter your Email</label>
                                             </div>
                                             <div class="form-outline form-white mb-4">
@@ -32,10 +32,16 @@
                                             </div>
                                             <div>
                                                 <label>
-                                                    <input type="checkbox" id="terms"name="terms" />
+                                                    <input type="checkbox" id="terms" name="terms" />
                                                     Do you agree to all the terms and conditions?
                                                 </label>
                                             </div>
+                                            <div class="form-outline form-white mt-4">
+                                                <img src="<?= $captcha ?>" alt="CAPTCHA Image">
+                                                <input class="form-control form-control-lg mt-3" type="text" id="captchaText" name="captchaText" minlength="6" maxlength="6"/>
+                                                <label class="form-label" for="captchaText">Enter the Captcha code displayed above</label>
+                                            </div>
+                                            <input type="hidden" name="csrf_token" value="<?= $_SESSION["csrf_token"] ?>">
                                             <button class="btn btn-outline-light btn-lg px-5 mb-5 mt-4" type="submit" name="send">Register</button>
                                         </form>
                                     <div>
